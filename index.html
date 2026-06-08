@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Gemini 教育認證完整攻略</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#0d1117;
+    display:flex; justify-content:center;
+    padding:40px 20px;
+    font-family:'Noto Sans TC',sans-serif;
+  }
+  .card {
+    width:900px;
+    background:#0d1117;
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 40px 100px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.07);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background:linear-gradient(135deg,#1557b0 0%,#1a73e8 40%,#0b8043 100%);
+    padding:44px 56px 40px;
+    position:relative; overflow:hidden;
+  }
+  .header::before {
+    content:''; position:absolute;
+    width:400px; height:400px;
+    background:radial-gradient(circle,rgba(255,255,255,0.09) 0%,transparent 70%);
+    top:-120px; right:-80px; border-radius:50%;
+  }
+  .header::after {
+    content:''; position:absolute;
+    width:200px; height:200px;
+    background:radial-gradient(circle,rgba(251,188,4,0.15) 0%,transparent 70%);
+    bottom:-60px; left:25%; border-radius:50%;
+  }
+  .header-tag {
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(0,0,0,0.28); border:1px solid rgba(255,255,255,0.22);
+    border-radius:999px; padding:5px 15px;
+    font-size:12px; color:rgba(255,255,255,0.9); font-weight:500;
+    margin-bottom:22px; letter-spacing:.5px; text-transform:uppercase;
+    position:relative; z-index:1;
+  }
+  .header-main { display:flex; align-items:flex-start; justify-content:space-between; position:relative; z-index:1; }
+  .title-en { font-size:12px; color:rgba(255,255,255,0.6); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px; }
+  .title-zh { font-size:42px; font-weight:900; color:#fff; line-height:1.1; letter-spacing:-1px; }
+  .title-zh em { font-style:normal; background:linear-gradient(90deg,#fbbc04,#ff6d00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .header-sub { margin-top:14px; font-size:15px; color:rgba(255,255,255,0.78); line-height:1.75; }
+  .header-sub strong { color:#fbbc04; font-weight:700; }
+  .pills { margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
+  .pill {
+    display:inline-flex; align-items:center; gap:5px;
+    font-size:12px; font-weight:600; border-radius:999px; padding:4px 13px;
+  }
+  .pill-green { background:rgba(52,168,83,0.22); color:#6fdd8c; border:1px solid rgba(52,168,83,0.35); }
+  .pill-red   { background:rgba(234,67,53,0.18); color:#ff7b72; border:1px solid rgba(234,67,53,0.32); }
+  .pill-blue  { background:rgba(66,133,244,0.18); color:#6ab0ff; border:1px solid rgba(66,133,244,0.32); }
+  .pill-yellow{ background:rgba(251,188,4,0.18);  color:#fdd663; border:1px solid rgba(251,188,4,0.32); }
+
+  .header-badge-box {
+    text-align:center;
+    background:rgba(0,0,0,0.32); border:2px solid rgba(255,255,255,0.15);
+    border-radius:20px; padding:22px 30px;
+    flex-shrink:0; margin-left:32px; backdrop-filter:blur(12px);
+    min-width:140px;
+  }
+  .badge-icon { font-size:48px; margin-bottom:10px; }
+  .badge-row { margin-bottom:12px; }
+  .badge-label { font-size:10.5px; color:rgba(255,255,255,0.5); margin-bottom:3px; letter-spacing:.5px; text-transform:uppercase; }
+  .badge-value { font-size:20px; font-weight:900; color:#fff; }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    display:grid; grid-template-columns:repeat(5,1fr);
+    background:#111827; border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .stat-item { padding:20px 14px; text-align:center; border-right:1px solid rgba(255,255,255,0.06); }
+  .stat-item:last-child { border-right:none; }
+  .stat-val { font-size:28px; font-weight:900; line-height:1; margin-bottom:4px; }
+  .stat-lab { font-size:11px; color:rgba(255,255,255,0.48); line-height:1.5; }
+  .c-b{color:#6ab0ff;} .c-g{color:#6fdd8c;} .c-r{color:#ff7b72;} .c-y{color:#fdd663;} .c-p{color:#cf9bff;}
+
+  /* ── SECTION ── */
+  .section { padding:32px 56px; border-bottom:1px solid rgba(255,255,255,0.05); }
+  .section:last-child { border-bottom:none; }
+  .sec-header { display:flex; align-items:center; gap:12px; margin-bottom:24px; }
+  .sec-icon { width:42px; height:42px; border-radius:13px; display:flex; align-items:center; justify-content:center; font-size:21px; flex-shrink:0; }
+  .sec-title { font-size:20px; font-weight:800; color:#fff; letter-spacing:-.3px; }
+  .sec-title small { font-size:12.5px; font-weight:400; color:rgba(255,255,255,0.4); margin-left:10px; }
+
+  /* ── STEPS ── */
+  .step-wrap { display:flex; gap:20px; align-items:stretch; }
+  .step-left { display:flex; flex-direction:column; align-items:center; flex-shrink:0; width:50px; }
+  .step-circle {
+    width:50px; height:50px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:19px; font-weight:900; color:#fff; flex-shrink:0; position:relative; z-index:1;
+  }
+  .step-line { width:2px; flex:1; min-height:16px; margin:5px 0; border-radius:2px; }
+  .step-body { flex:1; padding-bottom:30px; }
+  .step-wrap:last-child .step-body { padding-bottom:0; }
+  .step-wrap:last-child .step-line { display:none; }
+  .step-title { font-size:17px; font-weight:700; color:#fff; margin-bottom:10px; padding-top:10px; }
+  .step-desc { font-size:13.5px; color:rgba(255,255,255,0.65); line-height:1.8; margin-bottom:14px; }
+  .step-desc strong { color:#fbbc04; } .step-desc em { font-style:normal; color:#6ab0ff; }
+
+  .s1-bg{background:linear-gradient(135deg,#1557b0,#4285f4);}
+  .s2-bg{background:linear-gradient(135deg,#0b6e33,#34a853);}
+  .s3-bg{background:linear-gradient(135deg,#c62828,#ea4335);}
+  .s4-bg{background:linear-gradient(135deg,#e65100,#fbbc04);}
+  .s5-bg{background:linear-gradient(135deg,#6a1b9a,#a142f4);}
+  .s6-bg{background:linear-gradient(135deg,#006064,#00bcd4);}
+
+  .l1{background:linear-gradient(#4285f4,#34a853);}
+  .l2{background:linear-gradient(#34a853,#ea4335);}
+  .l3{background:linear-gradient(#ea4335,#fbbc04);}
+  .l4{background:linear-gradient(#fbbc04,#a142f4);}
+  .l5{background:linear-gradient(#a142f4,#00bcd4);}
+
+  /* ── SCREENSHOT FRAME ── */
+  .screen {
+    background:#1a2235; border:1px solid rgba(255,255,255,0.1);
+    border-radius:14px; overflow:hidden; margin-top:4px;
+  }
+  .screen-bar {
+    background:#252d42; padding:9px 16px;
+    display:flex; align-items:center; gap:7px;
+    border-bottom:1px solid rgba(255,255,255,0.07);
+  }
+  .dc{width:11px;height:11px;border-radius:50%;}
+  .dc-x{background:#ff5f57;} .dc-m{background:#febc2e;} .dc-n{background:#28c840;}
+  .addr{flex:1;background:rgba(255,255,255,0.07);border-radius:6px;padding:5px 12px;font-size:11.5px;color:rgba(255,255,255,0.45);font-family:monospace;margin-left:8px;}
+  .screen-body { padding:20px 24px; }
+
+  /* UI components */
+  .ui-g-logo { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+  .ui-g-dots { display:flex; gap:4px; }
+  .ui-gd { width:10px; height:10px; border-radius:50%; }
+  .ui-g-name { font-size:15px; font-weight:700; color:#fff; }
+  .ui-g-sub  { font-size:11px; color:rgba(255,255,255,0.4); }
+
+  .cert-grid { display:flex; gap:10px; }
+  .cert-card {
+    flex:1; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+    border-radius:10px; padding:14px;
+  }
+  .cert-card.hi { border-color:rgba(66,133,244,0.5); background:rgba(66,133,244,0.1); }
+  .cert-ico { font-size:22px; margin-bottom:8px; }
+  .cert-nm { font-size:12px; font-weight:700; color:#fff; margin-bottom:4px; }
+  .cert-ds { font-size:10.5px; color:rgba(255,255,255,0.5); line-height:1.5; }
+  .ui-btn { display:inline-block; margin-top:10px; border-radius:999px; padding:6px 14px; font-size:11px; font-weight:600; cursor:pointer; }
+  .btn-b  { background:#1a73e8; color:#fff; }
+  .btn-y  { background:#fbbc04; color:#1a1a1a; }
+
+  .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .form-field { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:8px; padding:10px 12px; }
+  .form-field.full { grid-column:1/-1; }
+  .form-field label { font-size:10px; color:rgba(255,255,255,0.4); display:block; margin-bottom:3px; }
+  .form-field span { font-size:12px; color:rgba(255,255,255,0.8); }
+
+  .exam-chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+  .chip { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1); border-radius:999px; padding:5px 13px; font-size:11.5px; color:rgba(255,255,255,0.65); }
+  .chip.ok { background:rgba(52,168,83,0.18); border-color:rgba(52,168,83,0.35); color:#6fdd8c; }
+
+  .exam-q-box { background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; }
+  .exam-meta { font-size:11px; color:rgba(255,255,255,0.4); margin-bottom:10px; }
+  .exam-q { font-size:12.5px; color:rgba(255,255,255,0.85); font-weight:500; line-height:1.65; margin-bottom:12px; }
+  .exam-opts { display:flex; flex-direction:column; gap:6px; }
+  .exam-opt {
+    background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+    border-radius:8px; padding:8px 12px; font-size:11.5px; color:rgba(255,255,255,0.6);
+    display:flex; align-items:center; gap:9px;
+  }
+  .exam-opt.sel { background:rgba(66,133,244,0.18); border-color:rgba(66,133,244,0.45); color:#fff; }
+  .radio { width:14px; height:14px; border-radius:50%; border:2px solid rgba(255,255,255,0.28); flex-shrink:0; }
+  .exam-opt.sel .radio { background:#4285f4; border-color:#4285f4; }
+
+  .result-box { text-align:center; padding:22px 16px; }
+  .result-score { font-size:26px; font-weight:900; color:#6fdd8c; margin-bottom:4px; }
+  .result-sub { font-size:12px; color:rgba(255,255,255,0.5); }
+  .result-pass { display:inline-flex; align-items:center; gap:6px; background:rgba(52,168,83,0.2); border:1px solid rgba(52,168,83,0.4); border-radius:999px; padding:7px 18px; font-size:13px; font-weight:700; color:#6fdd8c; margin-top:12px; }
+
+  /* ── TOOLS GRID ── */
+  .tools-header {
+    font-size:13px; font-weight:700; color:rgba(255,255,255,0.5);
+    letter-spacing:.5px; text-transform:uppercase; margin-bottom:14px;
+    padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .tools-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:20px; }
+  .tool-card {
+    background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07);
+    border-radius:14px; padding:16px; position:relative; overflow:hidden;
+  }
+  .tool-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+  .tc-b::before{background:linear-gradient(90deg,#4285f4,#6ab0ff);}
+  .tc-g::before{background:linear-gradient(90deg,#34a853,#6fdd8c);}
+  .tc-r::before{background:linear-gradient(90deg,#ea4335,#ff7b72);}
+  .tc-y::before{background:linear-gradient(90deg,#fbbc04,#fdd663);}
+  .tc-p::before{background:linear-gradient(90deg,#a142f4,#cf9bff);}
+  .tc-c::before{background:linear-gradient(90deg,#00bcd4,#80deea);}
+  .tool-icon { font-size:24px; margin-bottom:10px; }
+  .tool-name { font-size:13px; font-weight:700; color:#fff; margin-bottom:5px; }
+  .tool-desc { font-size:12px; color:rgba(255,255,255,0.55); line-height:1.65; }
+  .tool-tag {
+    display:inline-block; margin-top:8px; font-size:10.5px; font-weight:600;
+    border-radius:999px; padding:2px 10px;
+  }
+  .tt-b{background:rgba(66,133,244,0.18);color:#6ab0ff;}
+  .tt-g{background:rgba(52,168,83,0.18);color:#6fdd8c;}
+  .tt-p{background:rgba(161,66,244,0.18);color:#cf9bff;}
+  .tt-o{background:rgba(251,188,4,0.15);color:#fdd663;}
+
+  /* ── COMPARE TABLE ── */
+  .compare-table { width:100%; border-collapse:collapse; }
+  .compare-table th {
+    background:rgba(255,255,255,0.05); padding:12px 16px;
+    text-align:left; font-size:13px; font-weight:700; color:#fff;
+    border-bottom:2px solid rgba(255,255,255,0.08);
+  }
+  .compare-table th.g-col { color:#6ab0ff; }
+  .compare-table th.n-col { color:#cf9bff; }
+  .compare-table td {
+    padding:11px 16px; font-size:12.5px; color:rgba(255,255,255,0.65);
+    border-bottom:1px solid rgba(255,255,255,0.05); line-height:1.6;
+  }
+  .compare-table tr:last-child td { border-bottom:none; }
+  .compare-table td.aspect { color:#fff; font-weight:600; font-size:12.5px; }
+  .compare-table tr:hover td { background:rgba(255,255,255,0.02); }
+
+  /* ── TOPICS ── */
+  .topics-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .topic-box {
+    background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07);
+    border-radius:16px; padding:18px 20px; position:relative; overflow:hidden;
+  }
+  .topic-box::after { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius:16px 16px 0 0; }
+  .tb1::after{background:linear-gradient(90deg,#4285f4,#6ab0ff);}
+  .tb2::after{background:linear-gradient(90deg,#ea4335,#ff7b72);}
+  .tb3::after{background:linear-gradient(90deg,#fbbc04,#fdd663);}
+  .tb4::after{background:linear-gradient(90deg,#34a853,#6fdd8c);}
+  .tb-num { font-size:10.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:5px; opacity:.65; }
+  .tb1 .tb-num{color:#6ab0ff;} .tb2 .tb-num{color:#ff7b72;} .tb3 .tb-num{color:#fdd663;} .tb4 .tb-num{color:#6fdd8c;}
+  .tb-title { font-size:14px; font-weight:700; color:#fff; margin-bottom:12px; line-height:1.4; }
+  .tb-list { list-style:none; }
+  .tb-list li { font-size:12.5px; color:rgba(255,255,255,0.6); line-height:1.75; padding-left:14px; position:relative; }
+  .tb-list li::before { content:''; position:absolute; left:0; top:8px; width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,0.22); }
+
+  /* ── EXAM Q&A ── */
+  .qa-section { display:flex; flex-direction:column; gap:10px; }
+  .qa-card {
+    background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07);
+    border-radius:14px; padding:16px 18px;
+  }
+  .qa-card.scenario { border-color:rgba(66,133,244,0.22); }
+  .qa-type { font-size:10.5px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; margin-bottom:8px; }
+  .qt-concept { color:#6ab0ff; } .qt-scenario { color:#cf9bff; } .qt-multi { color:#fdd663; }
+  .qa-q-text { font-size:13.5px; color:#fff; font-weight:600; line-height:1.65; margin-bottom:12px; }
+  .qa-opts { display:flex; flex-direction:column; gap:5px; }
+  .qa-opt {
+    font-size:12.5px; color:rgba(255,255,255,0.55); line-height:1.6;
+    padding:7px 12px; border-radius:8px;
+    display:flex; align-items:flex-start; gap:9px;
+    background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06);
+  }
+  .qa-opt.ans { background:rgba(52,168,83,0.15); border-color:rgba(52,168,83,0.35); color:#fff; }
+  .qa-opt .oa { flex-shrink:0; width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10.5px; font-weight:700; }
+  .qa-opt.ans .oa { background:#34a853; color:#fff; }
+  .qa-opt:not(.ans) .oa { background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.4); }
+  .qa-note { margin-top:8px; font-size:12px; color:rgba(255,255,255,0.45); line-height:1.65; padding-left:4px; font-style:italic; }
+  .qa-note strong { color:#fbbc04; font-style:normal; }
+
+  .qa-2col { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+
+  /* ── RETAKE ── */
+  .retake-row { display:flex; gap:12px; }
+  .retake-box {
+    flex:1; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07);
+    border-radius:14px; padding:18px 14px; text-align:center;
+  }
+  .retake-attempt { font-size:11px; color:rgba(255,255,255,0.45); margin-bottom:6px; font-weight:600; }
+  .retake-days { font-size:32px; font-weight:900; margin-bottom:4px; }
+  .retake-label { font-size:11px; color:rgba(255,255,255,0.4); }
+
+  /* ── COURSES ── */
+  .course-list { display:flex; flex-direction:column; gap:12px; }
+  .course-card {
+    display:flex; align-items:center; gap:16px;
+    background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07);
+    border-radius:14px; padding:18px 20px;
+  }
+  .course-ico { width:52px; height:52px; border-radius:13px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+  .course-content { flex:1; }
+  .course-title { font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px; line-height:1.4; }
+  .course-desc  { font-size:12px; color:rgba(255,255,255,0.5); margin-bottom:8px; line-height:1.55; }
+  .course-url   { font-size:11px; color:#6ab0ff; font-family:monospace; background:rgba(66,133,244,0.1); border-radius:6px; padding:3px 9px; display:inline-block; }
+  .course-badge { background:rgba(52,168,83,0.2); border:1px solid rgba(52,168,83,0.3); border-radius:999px; padding:4px 14px; font-size:11px; font-weight:700; color:#6fdd8c; flex-shrink:0; }
+
+  /* ── FAQ ── */
+  .faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .faq-item {
+    background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07);
+    border-radius:14px; padding:16px 18px;
+  }
+  .faq-q { font-size:13px; font-weight:700; color:#fff; margin-bottom:6px; display:flex; align-items:flex-start; gap:8px; }
+  .faq-q .qm { background:rgba(66,133,244,0.22); color:#6ab0ff; font-size:10.5px; font-weight:900; padding:2px 8px; border-radius:5px; flex-shrink:0; margin-top:2px; }
+  .faq-a { font-size:12.5px; color:rgba(255,255,255,0.58); line-height:1.7; padding-left:30px; }
+  .faq-a strong { color:#6fdd8c; }
+
+  /* ── TIPS ── */
+  .tips-list { display:flex; flex-direction:column; gap:10px; }
+  .tip-row {
+    display:flex; gap:14px; align-items:flex-start;
+    background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06);
+    border-radius:12px; padding:14px 16px;
+  }
+  .tip-ico { font-size:21px; flex-shrink:0; }
+  .tip-body strong { color:#fbbc04; font-weight:700; font-size:13.5px; display:block; margin-bottom:3px; }
+  .tip-body span { font-size:12.5px; color:rgba(255,255,255,0.6); line-height:1.75; }
+
+  /* ── ALERT / CALLOUT ── */
+  .callout {
+    display:flex; gap:12px; border-radius:12px; padding:14px 18px;
+    font-size:13px; color:rgba(255,255,255,0.7); line-height:1.7; margin-top:14px;
+  }
+  .callout-y { background:rgba(251,188,4,0.08); border:1px solid rgba(251,188,4,0.22); }
+  .callout-b { background:rgba(66,133,244,0.08); border:1px solid rgba(66,133,244,0.22); }
+  .callout-g { background:rgba(52,168,83,0.08); border:1px solid rgba(52,168,83,0.22); }
+  .callout-y strong{color:#fdd663;} .callout-b strong{color:#6ab0ff;} .callout-g strong{color:#6fdd8c;}
+
+  /* ── FOOTER ── */
+  .footer {
+    background:#090d14; padding:20px 56px;
+    display:flex; align-items:center; justify-content:space-between;
+    border-top:1px solid rgba(255,255,255,0.05);
+  }
+  .footer-txt { font-size:11.5px; color:rgba(255,255,255,0.32); }
+  .footer-txt strong { color:rgba(255,255,255,0.5); }
+  .g-logo-dots { display:flex; gap:5px; }
+  .gd-sm { width:9px; height:9px; border-radius:50%; opacity:.45; }
+
+  hr.div { border:none; border-top:1px solid rgba(255,255,255,0.05); margin:0 56px; }
+</style>
+</head>
+<body>
+<div class="card">
+
+<!-- ═══ HEADER ═══ -->
+<div class="header">
+  <div class="header-tag">✦ Google for Education · 完整攻略 2026</div>
+  <div class="header-main">
+    <div class="header-text">
+      <div class="title-en">Gemini Certified Educator</div>
+      <div class="title-zh">Google <em>Gemini</em><br>教育認證</div>
+      <div class="header-sub">
+        <strong>免費</strong>取得 Google 官方 AI 教師認證<br>
+        37 題 · 2 小時 · 在家即可應試 · 即時顯示成績
+      </div>
+      <div class="pills">
+        <span class="pill pill-green">✓ 完全免費</span>
+        <span class="pill pill-red">英文題目</span>
+        <span class="pill pill-blue">考試可用 Gemini 輔助</span>
+        <span class="pill pill-yellow">無需教師資格</span>
+      </div>
+    </div>
+    <div class="header-badge-box">
+      <div class="badge-icon">🏅</div>
+      <div class="badge-row">
+        <div class="badge-label">有效期限</div>
+        <div class="badge-value" style="color:#fdd663;font-size:24px;">3 年</div>
+      </div>
+      <div class="badge-row">
+        <div class="badge-label">及格標準</div>
+        <div class="badge-value">30 / 37 題</div>
+      </div>
+      <div class="badge-row" style="margin-bottom:0;">
+        <div class="badge-label">認證名稱</div>
+        <div class="badge-value" style="font-size:12px;">Gemini Certified<br>Educator</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ STATS BAR ═══ -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-val c-b">37</div>
+    <div class="stat-lab">題<br>選擇/是非/多選</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val c-y">2<span style="font-size:15px">hr</span></div>
+    <div class="stat-lab">作答<br>時間上限</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val c-g">30</div>
+    <div class="stat-lab">題以上<br>方可通過</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val c-r">14<span style="font-size:14px">天</span></div>
+    <div class="stat-lab">報名後<br>完成期限</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val c-p">$0</div>
+    <div class="stat-lab">費用<br>完全免費</div>
+  </div>
+</div>
+
+<!-- ═══ STEP-BY-STEP ═══ -->
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(66,133,244,0.18);">🚀</div>
+    <div class="sec-title">報名＆應考完整步驟 <small>Step-by-Step</small></div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step-wrap">
+    <div class="step-left"><div class="step-circle s1-bg">1</div><div class="step-line l1"></div></div>
+    <div class="step-body">
+      <div class="step-title">前往官網，點右側「Register for an Exam」</div>
+      <div class="step-desc">
+        開啟瀏覽器前往 <em>educertifications.google</em>，以 Google 帳號登入。
+        頁面是「<strong>Your Google for Education Launchpad</strong>」，往下捲動可看到兩個區塊：<br>
+        ➜ <strong>左側「Google AI Educator Series」</strong>是學習課程（Start learning），<strong>不是這個！</strong><br>
+        ➜ <strong>右側「Google for Education Certifications」</strong>才是考試報名，點藍色 <strong>「Register for an Exam」</strong> 按鈕。
+      </div>
+      <div class="screen">
+        <div class="screen-bar">
+          <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+          <div class="addr">🔒 educertifications.google</div>
+        </div>
+        <div class="screen-body">
+          <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:14px;">Your Google for Education Launchpad</div>
+          <div class="cert-grid">
+            <div class="cert-card">
+              <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-bottom:6px;">✦ Gemini for Education</div>
+              <div class="cert-nm" style="font-size:14px;">Google AI Educator Series</div>
+              <div class="cert-ds">免費 AI 素養培訓課程，K-12 及高等教育</div>
+              <div class="ui-btn btn-b" style="opacity:0.5;">Start learning</div>
+              <div style="font-size:10px;color:#ff7b72;margin-top:6px;">← 這是課程，不是考試</div>
+            </div>
+            <div class="cert-card hi">
+              <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-bottom:6px;">Google for Education</div>
+              <div class="cert-nm" style="font-size:14px;">Google for Education Certifications</div>
+              <div class="cert-ds">• Google Workspace for Education（Level 1 / 2）<br>• <strong style="color:#fdd663;">Gemini for Education ← 這個！</strong></div>
+              <div class="ui-btn btn-y" style="margin-top:10px;">Register for an Exam ►</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step-wrap">
+    <div class="step-left"><div class="step-circle s2-bg">2</div><div class="step-line l2"></div></div>
+    <div class="step-body">
+      <div class="step-title">選擇「Gemini Educator」，點 Register</div>
+      <div class="step-desc">
+        進入 <em>educertifications.google/register</em>，看到三張卡片（還有更多在下方）。<br>
+        找到<strong>右上角</strong>有 <strong>Gemini logo</strong> 的 <strong>「Gemini Educator」</strong> 卡片，點 <strong>「Register」</strong> 按鈕。<br>
+        三張卡片都有「Available」綠色標籤，表示目前開放報名。
+      </div>
+      <div class="screen">
+        <div class="screen-bar">
+          <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+          <div class="addr">🔒 educertifications.google/register</div>
+        </div>
+        <div class="screen-body">
+          <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:14px;">Register for an Exam</div>
+          <div class="cert-grid">
+            <div class="cert-card">
+              <div style="font-size:10px;color:#6fdd8c;font-weight:700;margin-bottom:6px;">● Available</div>
+              <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;">GOOGLE CERTIFIED</div>
+              <div class="cert-nm">Educator Level 1</div>
+              <div class="cert-ds">Google Workspace 基礎應用認證</div>
+              <div class="ui-btn btn-b">Register</div>
+            </div>
+            <div class="cert-card">
+              <div style="font-size:10px;color:#6fdd8c;font-weight:700;margin-bottom:6px;">● Available</div>
+              <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;">GOOGLE CERTIFIED</div>
+              <div class="cert-nm">Educator Level 2</div>
+              <div class="cert-ds">進階教學整合認證</div>
+              <div class="ui-btn btn-b">Register</div>
+            </div>
+            <div class="cert-card hi">
+              <div style="font-size:10px;color:#6fdd8c;font-weight:700;margin-bottom:6px;">● Available</div>
+              <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;">GOOGLE CERTIFIED</div>
+              <div class="cert-nm">Gemini Educator ✦</div>
+              <div class="cert-ds">Gemini AI 教學應用認證<br><strong style="color:#fdd663;">← 選這個！</strong></div>
+              <div class="ui-btn btn-y">Register ►</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 - Registration Form -->
+  <div class="step-wrap">
+    <div class="step-left"><div class="step-circle s3-bg">3</div><div class="step-line l3"></div></div>
+    <div class="step-body">
+      <div class="step-title">填寫「Gemini Educator Registration」表單</div>
+      <div class="step-desc">
+        進入 <em>educertifications.google/registration/4</em>，大部分欄位<strong>自動從 Google 帳號帶入</strong>，只需確認即可。<br>
+        最底部有 <strong>4 個核取方塊</strong>，其中 <strong>2 個必填（標 *）</strong>：年滿 18 歲、同意服務條款及 NDA。<br>
+        確認後點 <strong>「Next」</strong> 完成報名。
+      </div>
+      <div class="screen">
+        <div class="screen-bar">
+          <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+          <div class="addr">🔒 educertifications.google/registration/4</div>
+        </div>
+        <div class="screen-body">
+          <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:14px;">Gemini Educator Registration</div>
+          <div class="form-grid">
+            <div class="form-field"><label>First Name *（自動帶入）</label><span>MING CHIH</span></div>
+            <div class="form-field"><label>Last Name *（自動帶入）</label><span>CHUNG</span></div>
+            <div class="form-field"><label>School / Organization *（自動帶入）</label><span>TYK</span></div>
+            <div class="form-field" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.06);"><label>Email Address *（灰色，無法修改）</label><span style="color:rgba(255,255,255,0.45);">jplaygame004@gmail.com</span></div>
+            <div class="form-field"><label>Job Title *</label><span>Teacher ▾</span></div>
+            <div class="form-field"><label>Phase of Education *</label><span>Ed Tech ▾</span></div>
+            <div class="form-field"><label>Country *（自動帶入）</label><span>Taiwan ▾</span></div>
+            <div class="form-field"><label>Language *（考試語言）</label><span>English ▾</span></div>
+          </div>
+          <div style="margin-top:14px;font-size:11.5px;color:rgba(255,255,255,0.5);line-height:2;">
+            ☐ 訂閱 Google for Education 消息（<span style="color:#6fdd8c;">選填</span>）<br>
+            ☐ 同意業務代表聯繫（<span style="color:#6fdd8c;">選填</span>）<br>
+            <span style="color:#fff;">☑ I certify that I am 18 years old or older...（<span style="color:#ff7b72;">必填 *</span>）</span><br>
+            <span style="color:#fff;">☑ I have read and accept the Google Terms of Service, Exam NDA...（<span style="color:#ff7b72;">必填 *</span>）</span>
+          </div>
+          <div style="margin-top:12px;"><div class="ui-btn btn-b" style="font-size:12px;padding:8px 22px;">Next →</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step-wrap">
+    <div class="step-left"><div class="step-circle s3-bg">3</div><div class="step-line l3"></div></div>
+    <div class="step-body">
+      <div class="step-title">（建議）先完成官方免費備考課程</div>
+      <div class="step-desc">
+        報名後先別急著應試！Google Learning Center 提供兩門<strong>完全免費</strong>課程，涵蓋考試所有主題，約 <strong>3–5 小時</strong>完成，通過率大幅提升。<br>
+        特別注意：本次考試新增 <strong>NotebookLM</strong> 相關題目，務必熟悉其功能！
+      </div>
+      <div class="callout callout-y">
+        <span>💡</span>
+        <span><strong>小提醒：</strong>考試全程可開著 Gemini 協助理解英文題意。遇到不懂的字直接貼給 Gemini 翻譯，<strong>這是被允許的</strong>！但答案仍需自己判斷。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step-wrap">
+    <div class="step-left"><div class="step-circle s4-bg">4</div><div class="step-line l4"></div></div>
+    <div class="step-body">
+      <div class="step-title">報名成功！確認截止日，點「Take Exam」</div>
+      <div class="step-desc">
+        點 Next 後立即跳轉確認頁，顯示 <strong>「You are registered for the Gemini Educator exam」</strong>。<br>
+        頁面直接顯示考試截止日（報名當日起算 <strong>14 天</strong>），不需等確認信。<br>
+        可選擇<strong>立即考試</strong>（Take Exam）或回首頁（Go to GCE Launchpad）稍後再考。
+      </div>
+      <div class="screen">
+        <div class="screen-bar">
+          <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+          <div class="addr">🔒 educertifications.google/registration-confirmation/4/...</div>
+        </div>
+        <div class="screen-body" style="text-align:center;padding:24px;">
+          <div style="font-size:22px;font-weight:900;color:#fff;margin-bottom:12px;line-height:1.3;">
+            You are registered for the<br><span style="color:#6ab0ff;">Gemini Educator exam</span>
+          </div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:20px;max-width:480px;margin-left:auto;margin-right:auto;">
+            Thank you for registering for this exam. You will have <strong style="color:#fdd663;">14 days</strong> to start the exam. You may start the exam now by clicking the Take Exam button below, or launch via the Google for Education Certification Launchpad before <strong style="color:#ff7b72;">6月 22日, 2026年</strong>.
+          </div>
+          <div style="display:flex;gap:12px;justify-content:center;">
+            <div class="ui-btn btn-b" style="padding:10px 20px;font-size:12px;border:1px solid rgba(255,255,255,0.2);background:transparent;">Go to GCE Launchpad</div>
+            <div class="ui-btn btn-y" style="padding:10px 20px;font-size:13px;font-weight:700;">Take Exam ►</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-g" style="margin-top:14px;">
+        <span>✅</span>
+        <span><strong>報名立即生效！</strong>確認頁面直接顯示截止日，同時 Google for Education 也會寄出<strong>報名確認信</strong>至信箱，信中載明考試名稱、報名日期與截止日（UTC-12）。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step-wrap">
+    <div class="step-left"><div class="step-circle s5-bg">5</div><div class="step-line l5"></div></div>
+    <div class="step-body">
+      <div class="step-title">確認語言 → 登入 Learning Center → 按 LAUNCH 開考</div>
+      <div class="step-desc">
+        點確認頁的「Take Exam」後，<strong>不是直接進考試</strong>，還有三個步驟：<br>
+        ① <strong>語言確認頁</strong>（Welcome to the Gemini Educator Exam）：選 English，再點「Take Exam」<br>
+        ② 跳轉到 <em>edu.exceedlms.com</em>，顯示「Authentication Required」，點 <strong>「Sign in with Google」</strong><br>
+        ③ 選擇<strong>與報名時相同的 Google 帳號</strong>，進入 Learning Center 後按 <strong>「LAUNCH」</strong> 才正式開考
+      </div>
+      <!-- 語言確認頁 -->
+      <div class="screen" style="margin-bottom:10px;">
+        <div class="screen-bar">
+          <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+          <div class="addr">🔒 educertifications.google/certification/4/...</div>
+        </div>
+        <div class="screen-body" style="text-align:center;padding:20px 24px;">
+          <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:16px;">Welcome to the Gemini Educator Exam</div>
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:10px 14px;margin-bottom:10px;text-align:left;">
+            <div style="font-size:10px;color:rgba(255,255,255,0.45);margin-bottom:4px;">Language</div>
+            <div style="font-size:13px;color:#fff;">English ▾</div>
+            <div style="font-size:10.5px;color:rgba(255,255,255,0.4);margin-top:4px;">This is the language that you would like to take the exam in.</div>
+          </div>
+          <div style="font-size:11.5px;color:rgba(255,255,255,0.55);margin-bottom:14px;">Please make sure you log into the Learning Center<br>with your registered email address.</div>
+          <div style="display:flex;gap:10px;justify-content:center;">
+            <div class="ui-btn btn-b" style="padding:8px 18px;font-size:11px;background:transparent;border:1px solid rgba(255,255,255,0.2);">Go to GCE Launchpad</div>
+            <div class="ui-btn btn-y" style="padding:8px 18px;font-size:12px;">Take Exam ►</div>
+          </div>
+        </div>
+      </div>
+      <!-- 實際考試介面 -->
+      <div class="screen">
+        <div class="screen-bar">
+          <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+          <div class="addr">🔒 edu.exceedlms.com/assessment_responses/take?enrollment_id=...</div>
+        </div>
+        <div class="screen-body">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.08);">
+            <div style="font-size:12px;color:rgba(255,255,255,0.5);">✕ &nbsp;Gemini Certified Educator</div>
+            <div style="display:flex;gap:16px;">
+              <div style="font-size:11.5px;color:rgba(255,255,255,0.6);">Progress: <strong style="color:#6ab0ff;">1 of 37</strong></div>
+              <div style="font-size:11.5px;color:rgba(255,255,255,0.6);">Time Limit: <strong style="color:#ff7b72;">01:59:51</strong></div>
+            </div>
+          </div>
+          <div class="exam-q-box">
+            <div class="exam-meta">Question 1 of 37</div>
+            <div class="exam-q">A teacher is concerned that using AI tools like Gemini for generating essay outlines might inadvertently lead to student plagiarism, even if unintentional. What actions could they take to deal with this concern?</div>
+            <div class="exam-opts">
+              <div class="exam-opt"><div class="radio"></div>Assume all AI-generated content is plagiarized and penalize students automatically.</div>
+              <div class="exam-opt"><div class="radio"></div>Avoid using AI tools for any assignments and block the use of tools across the school.</div>
+              <div class="exam-opt sel"><div class="radio"></div>Implement clear classroom guidelines for AI use, emphasize academic integrity, and teach students how to appropriately cite AI tools. ✓</div>
+            </div>
+          </div>
+          <div style="margin-top:14px;">
+            <div class="ui-btn btn-y" style="font-size:12px;padding:8px 24px;">NEXT →</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-b" style="margin-top:14px;">
+        <span>💡</span>
+        <span>考試全程可<strong>另開分頁用 Gemini 翻譯題目</strong>，這是被允許的！但答案要自己判斷。每題按 <strong>NEXT</strong> 後無法回頭，作答前確認清楚。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5b -->
+  <div class="step-wrap">
+    <div class="step-left"><div class="step-circle s6-bg" style="font-size:14px;">5b</div><div class="step-line" style="background:linear-gradient(#00bcd4,#a142f4);"></div></div>
+    <div class="step-body">
+      <div class="step-title">Review 頁面：確認答案，捲到底部點 Submit</div>
+      <div class="step-desc">
+        答完最後一題按 NEXT 後，進入 <strong>Review 頁面</strong>，不會立刻計分。<br>
+        可以捲動查看全部 37 題的作答，每題旁有 <strong>「EDIT YOUR ANSWER」</strong> 按鈕可修改。<br>
+        確認無誤後捲到最底部，點 <strong>「Submit」</strong> 才正式繳交。
+      </div>
+      <div class="screen" style="margin-bottom:10px;">
+        <div class="screen-bar">
+          <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+          <div class="addr">🔒 edu.exceedlms.com/assessment_responses/confirm_completion/...</div>
+        </div>
+        <div class="screen-body">
+          <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:8px;">Review</div>
+          <div style="font-size:13px;color:#6fdd8c;font-weight:600;margin-bottom:6px;">You have completed all questions!</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,0.6);margin-bottom:16px;">You may go back, review your questions, and make any updates that you would like or submit below to turn in the results.</div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px;margin-bottom:10px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:6px;">Question 1 of 37</div>
+            <div style="font-size:12px;color:#fff;line-height:1.6;margin-bottom:10px;">A teacher is concerned that using AI tools like Gemini for generating essay outlines might inadvertently lead to student plagiarism...</div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+              <div style="width:14px;height:14px;border-radius:50%;background:#4285f4;flex-shrink:0;"></div>
+              <div style="font-size:11.5px;color:#fff;">Implement clear classroom guidelines for AI use, emphasize academic integrity... ✓</div>
+            </div>
+            <div class="ui-btn" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);font-size:11px;padding:5px 14px;display:inline-block;margin-top:4px;">EDIT YOUR ANSWER</div>
+          </div>
+          <div style="text-align:center;color:rgba(255,255,255,0.4);font-size:12px;">... 捲動查看全部 37 題 ...</div>
+        </div>
+      </div>
+      <div class="callout callout-y">
+        <span>⚡</span>
+        <span><strong>提交前最後機會！</strong>在 Review 頁可以回頭修改任何題目的答案，確認都沒問題再捲到最底部點 Submit 提交。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5c -->
+  <div class="step-wrap">
+    <div class="step-left"><div class="step-circle s5-bg" style="font-size:14px;">5c</div><div class="step-line" style="background:linear-gradient(#a142f4,#00bcd4);"></div></div>
+    <div class="step-body">
+      <div class="step-title">Submit 繳交，即時顯示成績</div>
+      <div class="step-desc">
+        捲到 Review 頁最底部，點 <strong>「Submit」</strong> 正式繳交。<br>
+        系統<strong>即時顯示成績</strong>，37 題需答對 <strong>30 題（≈81%）</strong>以上方可通過。<br>
+        未通過可按重考規則免費重試（次數不限）。
+      </div>
+      <div class="screen">
+        <div class="screen-bar">
+          <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+          <div class="addr">🔒 edu.exceedlms.com/assessment_responses/report/...</div>
+        </div>
+        <div class="screen-body" style="padding:20px 24px;">
+          <!-- 完成資訊 -->
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;margin-bottom:20px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ea4335,#fbbc04);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;">S</div>
+            <div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.5);">Completed: Jun 8 · 10:27 AM</div>
+              <div style="font-size:13px;font-weight:600;color:#fff;">（帳號名稱）</div>
+            </div>
+          </div>
+          <!-- 成績區 -->
+          <div style="display:flex;align-items:center;gap:28px;">
+            <!-- 圓形進度圖 -->
+            <div style="position:relative;width:100px;height:100px;flex-shrink:0;">
+              <svg viewBox="0 0 36 36" style="width:100px;height:100px;transform:rotate(-90deg);">
+                <circle cx="18" cy="18" r="15.9" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3"/>
+                <circle cx="18" cy="18" r="15.9" fill="none" stroke="#34a853" stroke-width="3" stroke-dasharray="92 8" stroke-linecap="round"/>
+              </svg>
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+                <div style="font-size:22px;font-weight:900;color:#fff;">92<span style="font-size:13px;">%</span></div>
+              </div>
+            </div>
+            <!-- 文字 -->
+            <div>
+              <div style="font-size:22px;font-weight:800;color:#34a853;margin-bottom:6px;">Assessment Passed</div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;margin-bottom:12px;">Congratulations! You answered enough questions correctly to receive a passing grade.</div>
+              <div style="font-size:14px;color:rgba(255,255,255,0.6);">Total Points: <strong style="color:#fdd663;font-size:18px;">34/37</strong></div>
+            </div>
+          </div>
+          <div style="margin-top:20px;">
+            <div class="ui-btn btn-b" style="padding:8px 28px;font-size:13px;">CLOSE</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-g" style="margin-top:14px;">
+        <span>🏆</span>
+        <span><strong>實際測試成績：34/37，得分 92%</strong>（及格線 30/37 = 81%），從報名到完成考試約 <strong>45 分鐘</strong>！</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step-wrap">
+    <div class="step-left"><div class="step-circle s6-bg">6</div></div>
+    <div class="step-body">
+      <div class="step-title">Learning Center 顯示通過，等待信箱收到 Accredible 證書</div>
+      <div class="step-desc">
+        關閉成績頁後，Learning Center 主頁的 <strong>LAUNCH 按鈕會變成「REVIEW ›」</strong>，並顯示綠色打勾通過標記。<br>
+        電子證書與 Accredible 數位徽章會<strong>自動寄送至報名信箱</strong>，通常數分鐘至數小時內送達。
+      </div>
+      <!-- Learning Center 考後畫面 -->
+      <div class="screen" style="margin-bottom:14px;">
+        <div class="screen-bar">
+          <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+          <div class="addr">🔒 edu.exceedlms.com/student/activity/1804358-gemini-certification-for-educators</div>
+        </div>
+        <div class="screen-body" style="padding:18px 24px;">
+          <div style="display:flex;gap:20px;align-items:center;margin-bottom:18px;">
+            <div style="width:80px;height:80px;background:linear-gradient(135deg,#4285f4,#34a853);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <div style="font-size:36px;">✦</div>
+            </div>
+            <div>
+              <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:4px;">Welcome to the Gemini certification exam</div>
+            </div>
+          </div>
+          <!-- 通過標記 -->
+          <div style="background:rgba(52,168,83,0.12);border:1px solid rgba(52,168,83,0.35);border-radius:10px;padding:12px 16px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:22px;height:22px;border-radius:50%;background:#34a853;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;font-weight:700;">✓</div>
+              <div>
+                <div style="font-size:13.5px;font-weight:700;color:#6fdd8c;">Passed (92%) on June 8, 2026</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.5);">Completed at 10:27 AM</div>
+              </div>
+            </div>
+            <div style="font-size:11.5px;color:#6ab0ff;cursor:pointer;">Take a survey &nbsp; ⓘ Info</div>
+          </div>
+          <!-- 課程資訊 -->
+          <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:4px;">Gemini Certified Educator</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:14px;">By Google for Education &nbsp;·&nbsp; Published: Aug 22, 2025 &nbsp;·&nbsp; ⭐⭐⭐⭐⭐ (13921)</div>
+          <div class="ui-btn btn-b" style="padding:8px 22px;font-size:13px;">REVIEW ›</div>
+        </div>
+      </div>
+      <!-- 信件模擬框 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;">
+        <!-- 報名確認信 -->
+        <div class="screen">
+          <div class="screen-bar">
+            <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+            <div class="addr" style="font-size:10px;">📧 Gmail · 報名確認信</div>
+          </div>
+          <div class="screen-body" style="padding:14px 16px;">
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-bottom:4px;">Google for Edu &lt;noreply@google.com&gt;</div>
+            <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.4;">Your Google for Education Certification Exam Registration Confirmation</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:10px;">
+              Thank you for registering! You will have <strong style="color:#fdd663;">14 days</strong> to start the exam.
+            </div>
+            <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;font-size:10.5px;color:rgba(255,255,255,0.65);line-height:1.8;">
+              <strong style="color:#6ab0ff;">Certificate for Gemini Educator</strong><br>
+              • Exam: Gemini Educator<br>
+              • Registration Date: June 8, 2026<br>
+              • Exam Start By Date: <strong style="color:#ff7b72;">June 22, 2026</strong>
+            </div>
+          </div>
+        </div>
+        <!-- 結果通知信 -->
+        <div class="screen">
+          <div class="screen-bar">
+            <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+            <div class="addr" style="font-size:10px;">📧 Gmail · 成績通知信</div>
+          </div>
+          <div class="screen-body" style="padding:14px 16px;">
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-bottom:4px;">Google for Education Certification Team</div>
+            <div style="font-size:13px;font-weight:700;color:#6fdd8c;margin-bottom:8px;">Examination Successful 🎉</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.7);line-height:1.6;margin-bottom:10px;">
+              Congratulations! You have passed the Gemini Certified Educator exam.
+            </div>
+            <div style="background:rgba(52,168,83,0.1);border:1px solid rgba(52,168,83,0.25);border-radius:8px;padding:10px;font-size:10.5px;color:rgba(255,255,255,0.65);line-height:1.8;">
+              • Certified User: （姓名）<br>
+              • Effective Date: <strong style="color:#fdd663;">08 June 2026</strong><br>
+              • Expiration Date: <strong style="color:#6fdd8c;">2029-06-08（3 年）</strong>
+            </div>
+            <div style="margin-top:8px;font-size:10.5px;color:#6ab0ff;">Share your secure digital credential →</div>
+          </div>
+        </div>
+      </div>
+      <!-- Accredible 證書與徽章 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;">
+        <!-- 電子證書 -->
+        <div class="screen">
+          <div class="screen-bar">
+            <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+            <div class="addr" style="font-size:10px;">🔒 edu.google.accredible.com/...</div>
+          </div>
+          <div class="screen-body" style="padding:16px;background:#f8f9fa;border-radius:0 0 10px 10px;">
+            <div style="text-align:center;padding:16px;background:#fff;border-radius:10px;border:1px solid rgba(0,0,0,0.08);box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+              <!-- Gemini logo -->
+              <div style="font-size:28px;margin-bottom:8px;">
+                <span style="color:#4285f4;">✦</span>
+              </div>
+              <div style="font-size:14px;font-weight:700;color:#202124;margin-bottom:6px;">Gemini Certified Educator</div>
+              <div style="font-size:10px;color:#5f6368;margin-bottom:8px;">This qualification is awarded to</div>
+              <div style="font-size:13px;font-weight:900;color:#202124;margin-bottom:10px;letter-spacing:0.5px;">MING CHIH CHUNG</div>
+              <div style="font-size:9.5px;color:#5f6368;line-height:1.6;margin-bottom:12px;">for having demonstrated the knowledge, skills, and basic competencies needed to use Google AI in education.</div>
+              <div style="display:flex;justify-content:center;gap:20px;font-size:9.5px;color:#5f6368;margin-bottom:12px;">
+                <div><div style="color:#202124;font-weight:600;">Issued on</div>08/06/2026</div>
+                <div style="width:1px;background:#e0e0e0;"></div>
+                <div><div style="color:#202124;font-weight:600;">Valid through</div><strong style="color:#34a853;">08/06/2029</strong></div>
+              </div>
+              <div style="font-size:11px;font-weight:700;color:#4285f4;">Google for Education</div>
+            </div>
+          </div>
+        </div>
+        <!-- 數位徽章 -->
+        <div class="screen">
+          <div class="screen-bar">
+            <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+            <div class="addr" style="font-size:10px;">🔒 edu.google.accredible.com/... · Badge</div>
+          </div>
+          <div class="screen-body" style="padding:16px;background:#f8f9fa;">
+            <div style="text-align:center;padding:20px;background:#fff;border-radius:10px;border:1px solid rgba(0,0,0,0.08);">
+              <!-- 徽章設計 -->
+              <div style="margin-bottom:14px;">
+                <div style="font-size:52px;line-height:1;">
+                  <span style="background:linear-gradient(135deg,#ea4335 0%,#4285f4 33%,#34a853 66%,#fbbc04 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">✦</span>
+                </div>
+              </div>
+              <div style="font-size:16px;font-weight:700;color:#202124;margin-bottom:8px;">Gemini Certified</div>
+              <div style="background:#4285f4;color:#fff;border-radius:999px;padding:5px 24px;font-size:13px;font-weight:600;display:inline-block;">Educator</div>
+            </div>
+            <div style="margin-top:10px;font-size:10.5px;color:rgba(255,255,255,0.5);text-align:center;">可分享到 LinkedIn、Facebook、履歷</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-y" style="margin-top:12px;">
+        <span>⚠️</span>
+        <span>登入 Accredible 後記得 <strong>「Set a Password」</strong>，方便下次查看證書。平台網址：<code style="background:rgba(255,255,255,0.1);padding:1px 6px;border-radius:4px;color:#fdd663;">edu.google.accredible.com</code>，可下載 PDF 版本證書。</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /section steps -->
+
+<hr class="div">
+
+<!-- ═══ EXAM TOPICS ═══ -->
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(52,168,83,0.18);">📚</div>
+    <div class="sec-title">考試四大主題 <small>What's on the Exam</small></div>
+  </div>
+  <div class="topics-grid">
+    <div class="topic-box tb1">
+      <div class="tb-num">Topic 01 · AI 基礎觀念</div>
+      <div class="tb-title">Generative AI &amp; Gemini 核心原理</div>
+      <ul class="tb-list">
+        <li><strong>Hallucination（幻覺）</strong>：AI 生成錯誤或捏造資訊</li>
+        <li><strong>Bias（偏見）</strong>：訓練資料造成的系統性不公</li>
+        <li><strong>Prompt（提示）</strong>：給 AI 的指令或問題</li>
+        <li><strong>Human in the loop</strong>：人工審核確保品質</li>
+        <li>生成式 AI vs 機器學習 vs 大型語言模型</li>
+        <li>Workspace for Education 資料不用於訓練 Gemini</li>
+      </ul>
+    </div>
+    <div class="topic-box tb2">
+      <div class="tb-num">Topic 02 · AI 倫理與責任使用</div>
+      <div class="tb-title">Responsible AI &amp; Ethics 倫理規範</div>
+      <ul class="tb-list">
+        <li>AI 生成內容<strong>必須明確標註來源</strong></li>
+        <li>引導學生批判性評估 AI 準確性與偏見</li>
+        <li>與教科書、可靠來源交叉比對</li>
+        <li>用 Version History 查驗是否透過 AI 完成作業</li>
+        <li>AI 是「輔助」而非「取代」人工判斷</li>
+        <li>學術誠信與數位責任規範</li>
+      </ul>
+    </div>
+    <div class="topic-box tb3">
+      <div class="tb-num">Topic 03 · 提示工程</div>
+      <div class="tb-title">Prompt Engineering 四大核心元素</div>
+      <ul class="tb-list">
+        <li><strong>Persona（角色）</strong>：要求 AI 扮演特定專家角色</li>
+        <li><strong>Task（任務）</strong>：具體的執行指令</li>
+        <li><strong>Context（背景）</strong>：提供相關情境資訊</li>
+        <li><strong>Format（格式）</strong>：指定輸出格式、字數、受眾</li>
+        <li>有效提示特徵：清晰、具體、有情境</li>
+        <li>Gem 功能：儲存重複使用的提示</li>
+      </ul>
+    </div>
+    <div class="topic-box tb4">
+      <div class="tb-num">Topic 04 · 教學實作應用</div>
+      <div class="tb-title">Classroom Application 課堂場景</div>
+      <ul class="tb-list">
+        <li>差異化教學：針對不同閱讀程度生成多份摘要</li>
+        <li>課程計畫初稿後，<strong>必須由教師專業審核編輯</strong></li>
+        <li>科學課：用 Canvas 建立互動式模擬實驗</li>
+        <li>歷史課：引導學生比對 AI 與教科書差異</li>
+        <li>行政：家長信、職缺描述、校規摘要</li>
+        <li>用 Gemini 作為思考夥伴發想課程構想</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- ═══ GEMINI TOOLS ═══ -->
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(66,133,244,0.18);">⚙️</div>
+    <div class="sec-title">Gemini 工具功能詳解 <small>必考工具知識</small></div>
+  </div>
+
+  <div class="tools-header">Gemini for Education 內建工具</div>
+  <div class="tools-grid">
+    <div class="tool-card tc-b">
+      <div class="tool-icon">🖼️</div>
+      <div class="tool-name">Canvas</div>
+      <div class="tool-desc">建立互動式 HTML 網頁應用程式、資訊圖表、自訂測驗。讓學生調整參數觀察即時變化（如密度模擬）。</div>
+      <span class="tool-tag tt-b">互動內容</span>
+    </div>
+    <div class="tool-card tc-g">
+      <div class="tool-icon">🧭</div>
+      <div class="tool-name">Guided Learning</div>
+      <div class="tool-desc">透過開放式問題逐步引導學習主題，建立深度討論，不是直接給答案，而是引導思考過程。</div>
+      <span class="tool-tag tt-g">引導式學習</span>
+    </div>
+    <div class="tool-card tc-r" style="--tc-r:1;">
+      <div class="tool-icon">🎨</div>
+      <div class="tool-name">Imagen（圖像生成）</div>
+      <div class="tool-desc">根據文字提示生成圖片，也可編輯現有圖片。<strong>不能</strong>生成音訊或 HTML。</div>
+      <span class="tool-tag" style="background:rgba(234,67,53,0.18);color:#ff7b72;">圖像 AI</span>
+    </div>
+    <div class="tool-card tc-y">
+      <div class="tool-icon">🔍</div>
+      <div class="tool-name">Deep Research</div>
+      <div class="tool-desc">自動爬梳網路內容，思考分析後產生多頁完整報告。用於大量資料的深度研究與整合。</div>
+      <span class="tool-tag tt-o">深度研究</span>
+    </div>
+    <div class="tool-card tc-p">
+      <div class="tool-icon">✅</div>
+      <div class="tool-name">Double Check Response</div>
+      <div class="tool-desc">探索 Gemini 回覆所使用的網路資料來源，幫助驗證資訊可靠性，查看引用依據。</div>
+      <span class="tool-tag tt-p">事實查核</span>
+    </div>
+    <div class="tool-card tc-c">
+      <div class="tool-icon">🔗</div>
+      <div class="tool-name">Google 工具整合</div>
+      <div class="tool-desc">整合 Docs、Gmail、Classroom、Meet、Calendar、Drive，可在 Gmail 直接生成郵件回覆，不需離開介面。</div>
+      <span class="tool-tag" style="background:rgba(0,188,212,0.15);color:#80deea;">工作流程</span>
+    </div>
+  </div>
+
+  <div class="tools-header" style="margin-top:8px;">NotebookLM 功能</div>
+  <div class="tools-grid">
+    <div class="tool-card tc-p">
+      <div class="tool-icon">🎙️</div>
+      <div class="tool-name">Audio Overview（音訊總覽）</div>
+      <div class="tool-desc">把上傳文件的重點自動轉成 AI 語音對話摘要，<strong>可下載離線收聽</strong>。多工處理時聆聽摘要最有效率。</div>
+      <span class="tool-tag tt-p">語音摘要</span>
+    </div>
+    <div class="tool-card tc-g">
+      <div class="tool-icon">📋</div>
+      <div class="tool-name">Study Guide / FAQ</div>
+      <div class="tool-desc">根據上傳文件內容自動生成學習指南與常見問題集，快速掌握政策、文件重點。</div>
+      <span class="tool-tag tt-g">學習輔助</span>
+    </div>
+    <div class="tool-card tc-b">
+      <div class="tool-icon">🔗</div>
+      <div class="tool-name">Inline Citations（內嵌引文）</div>
+      <div class="tool-desc">回答問題時直接附上來源文件的段落連結，可點擊驗證答案準確性。這是 NotebookLM 驗證資訊的方式。</div>
+      <span class="tool-tag tt-b">來源驗證</span>
+    </div>
+    <div class="tool-card tc-y">
+      <div class="tool-icon">🌐</div>
+      <div class="tool-name">Discover Tool</div>
+      <div class="tool-desc">自動為目前的筆記本搜尋並建議額外的相關資料來源，擴充研究範圍。</div>
+      <span class="tool-tag tt-o">資料擴充</span>
+    </div>
+    <div class="tool-card tc-r">
+      <div class="tool-icon">📁</div>
+      <div class="tool-name">支援的上傳格式</div>
+      <div class="tool-desc">可上傳 PDF、Google Docs、Slides、純文字、MP3 音訊檔案，並可將筆記本<strong>分享給組織內其他人</strong>。</div>
+      <span class="tool-tag" style="background:rgba(234,67,53,0.18);color:#ff7b72;">多格式</span>
+    </div>
+    <div class="tool-card tc-c">
+      <div class="tool-icon">⚡</div>
+      <div class="tool-name">Gemini vs NotebookLM</div>
+      <div class="tool-desc"><strong>Gemini</strong>：任務導向，廣泛生成、整合 Google 工具<br><strong>NotebookLM</strong>：文件導向，基於你上傳的特定來源回答</div>
+      <span class="tool-tag" style="background:rgba(0,188,212,0.15);color:#80deea;">核心差異</span>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- ═══ COMPARE TABLE ═══ -->
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(161,66,244,0.18);">⚖️</div>
+    <div class="sec-title">Gemini vs NotebookLM 比較 <small>常見考題核心</small></div>
+  </div>
+  <table class="compare-table">
+    <tr>
+      <th style="width:22%;">比較面向</th>
+      <th class="g-col">✨ Gemini for Education</th>
+      <th class="n-col">📔 NotebookLM</th>
+    </tr>
+    <tr>
+      <td class="aspect">核心定位</td>
+      <td>任務導向，廣泛生成</td>
+      <td>文件導向，基於上傳來源</td>
+    </tr>
+    <tr>
+      <td class="aspect">資料來源</td>
+      <td>廣泛網路資訊 + Google 工具</td>
+      <td>僅限你上傳的文件</td>
+    </tr>
+    <tr>
+      <td class="aspect">最適合做什麼</td>
+      <td>課程計畫、差異化教材、心智圖、互動應用</td>
+      <td>快速理解大量 PDF、政策文件摘要</td>
+    </tr>
+    <tr>
+      <td class="aspect">驗證資訊方式</td>
+      <td>Double Check Response（查看網路來源）</td>
+      <td>Inline Citations（連結至文件段落）</td>
+    </tr>
+    <tr>
+      <td class="aspect">音訊功能</td>
+      <td>可收聽 AI 回覆（Text to Speech）</td>
+      <td>Audio Overview（可下載離線）</td>
+    </tr>
+    <tr>
+      <td class="aspect">開啟方式</td>
+      <td>App Launcher / gemini.google.com / Google Drive 新增</td>
+      <td>notebooklm.google.com</td>
+    </tr>
+  </table>
+</div>
+
+<hr class="div">
+
+<!-- ═══ REAL EXAM Q&A ═══ -->
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(251,188,4,0.18);">📝</div>
+    <div class="sec-title">真實考題範例＋解析 <small>Actual Exam Questions</small></div>
+  </div>
+  <div class="qa-section">
+
+    <!-- 概念題 -->
+    <div class="qa-card">
+      <div class="qa-type qt-concept">概念題 · AI 術語</div>
+      <div class="qa-q-text">AI 系統生成看似合理但實際錯誤或捏造的內容，這種現象稱為？</div>
+      <div class="qa-opts">
+        <div class="qa-opt"><div class="oa">A</div>Prompt（提示）</div>
+        <div class="qa-opt"><div class="oa">B</div>Bias（偏見）</div>
+        <div class="qa-opt ans"><div class="oa">C</div>Hallucinations（幻覺）✓</div>
+        <div class="qa-opt"><div class="oa">D</div>Human in the loop（人工審核）</div>
+      </div>
+    </div>
+
+    <!-- 提示工程 -->
+    <div class="qa-card">
+      <div class="qa-type qt-concept">概念題 · 提示工程</div>
+      <div class="qa-q-text">撰寫有效提示時的四個主要面向是？</div>
+      <div class="qa-opts">
+        <div class="qa-opt"><div class="oa">A</div>Length、Speed、Detail、Tone</div>
+        <div class="qa-opt"><div class="oa">B</div>Grammar、Spelling、Urgency、Topic</div>
+        <div class="qa-opt ans"><div class="oa">C</div>Persona（角色）、Task（任務）、Context（背景）、Format（格式）✓</div>
+        <div class="qa-opt"><div class="oa">D</div>Recipient、Sender、Subject、Body</div>
+      </div>
+    </div>
+
+    <div class="qa-2col">
+      <!-- 工具題 -->
+      <div class="qa-card">
+        <div class="qa-type qt-concept">概念題 · 工具功能</div>
+        <div class="qa-q-text">NotebookLM 如何幫助驗證根據上傳文件的回答準確性？</div>
+        <div class="qa-opts">
+          <div class="qa-opt ans"><div class="oa">A</div>提供 Inline Citations（內嵌引文）連結到來源段落 ✓</div>
+          <div class="qa-opt"><div class="oa">B</div>提供可信度分數</div>
+          <div class="qa-opt"><div class="oa">C</div>用不同顏色標示</div>
+          <div class="qa-opt"><div class="oa">D</div>寄送參考書目</div>
+        </div>
+      </div>
+
+      <!-- 是非題 -->
+      <div class="qa-card">
+        <div class="qa-type qt-multi">是非題</div>
+        <div class="qa-q-text">Workspace for Education 帳戶的資料，會被 Google 用來訓練 Gemini 模型？</div>
+        <div class="qa-opts">
+          <div class="qa-opt"><div class="oa">○</div>正確（True）</div>
+          <div class="qa-opt ans"><div class="oa">●</div>錯誤（False）✓</div>
+        </div>
+        <div class="qa-note">教育帳戶資料受 Google 隱私政策保護，<strong>不會</strong>用於訓練 AI 模型。</div>
+      </div>
+    </div>
+
+    <!-- 情境題 -->
+    <div class="qa-card scenario">
+      <div class="qa-type qt-scenario">情境題 · 教學應用</div>
+      <div class="qa-q-text">老師懷疑學生用 AI 完成 Google 文件作業，哪個工具可以查看文件的實際創作過程？</div>
+      <div class="qa-opts">
+        <div class="qa-opt ans"><div class="oa">A</div>Version History（版本記錄）— 可查看每次編輯的時間與內容 ✓</div>
+        <div class="qa-opt"><div class="oa">B</div>上傳到 NotebookLM 進行分析</div>
+        <div class="qa-opt"><div class="oa">C</div>直接問 Gemini 這份文件是否由 AI 產生</div>
+        <div class="qa-opt"><div class="oa">D</div>使用 Classroom 的 AI 檢查工具</div>
+      </div>
+    </div>
+
+    <div class="qa-2col">
+      <!-- 情境題 2 -->
+      <div class="qa-card scenario">
+        <div class="qa-type qt-scenario">情境題 · 工具選擇</div>
+        <div class="qa-q-text">理科老師想建立互動式網頁應用，讓學生調整質量與體積來觀察密度變化，最佳工具是？</div>
+        <div class="qa-opts">
+          <div class="qa-opt"><div class="oa">A</div>NotebookLM Sources</div>
+          <div class="qa-opt"><div class="oa">B</div>Deep Research</div>
+          <div class="qa-opt"><div class="oa">C</div>Study Guide</div>
+          <div class="qa-opt ans"><div class="oa">D</div>Canvas（畫布）✓</div>
+        </div>
+      </div>
+
+      <!-- 多選題 -->
+      <div class="qa-card">
+        <div class="qa-type qt-multi">多選題 · Gemini 工具</div>
+        <div class="qa-q-text">Gemini 中，Canvas 可以完成哪些任務？（多選）</div>
+        <div class="qa-opts">
+          <div class="qa-opt ans"><div class="oa">A</div>建立互動式資訊圖表 ✓</div>
+          <div class="qa-opt ans"><div class="oa">B</div>建立 HTML 網站 ✓</div>
+          <div class="qa-opt ans"><div class="oa">C</div>建立自訂測驗 ✓</div>
+          <div class="qa-opt"><div class="oa">D</div>創作音樂歌曲 ✗</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 情境題 3 -->
+    <div class="qa-card scenario">
+      <div class="qa-type qt-scenario">情境題 · 責任使用</div>
+      <div class="qa-q-text">英文老師使用 Gemini 生成說服性作文題目清單，其中包含爭議性主題，老師應該？</div>
+      <div class="qa-opts">
+        <div class="qa-opt"><div class="oa">A</div>立即將完整清單直接呈現給學生</div>
+        <div class="qa-opt ans"><div class="oa">B</div>批判性檢視每個題目，確認年齡適宜性、中立性、能否促進尊重的辯論，使用前加以修正 ✓</div>
+        <div class="qa-opt"><div class="oa">C</div>請學生忽略他們不感興趣的題目</div>
+        <div class="qa-opt"><div class="oa">D</div>用另一個 AI 工具重新生成清單</div>
+      </div>
+      <div class="qa-note"><strong>核心原則：</strong>AI 生成的內容必須經過教師的專業審核與批判性評估，不可直接使用。</div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- ═══ RETAKE ═══ -->
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(234,67,53,0.18);">🔄</div>
+    <div class="sec-title">重考規則 <small>Retake Policy — 次數無限、重考免費</small></div>
+  </div>
+  <div class="retake-row">
+    <div class="retake-box">
+      <div class="retake-attempt">第 1 次未通過</div>
+      <div class="retake-days c-b">3<span style="font-size:15px">天後</span></div>
+      <div class="retake-label">可申請重考</div>
+    </div>
+    <div class="retake-box">
+      <div class="retake-attempt">第 2 次未通過</div>
+      <div class="retake-days c-y">7<span style="font-size:15px">天後</span></div>
+      <div class="retake-label">可申請重考</div>
+    </div>
+    <div class="retake-box">
+      <div class="retake-attempt">第 3 次以後</div>
+      <div class="retake-days c-g">14<span style="font-size:15px">天後</span></div>
+      <div class="retake-label">每次等待 14 天</div>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- ═══ FREE COURSES ═══ -->
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(161,66,244,0.18);">🎓</div>
+    <div class="sec-title">官方備考免費課程 <small>建議報名前先完成</small></div>
+  </div>
+  <div class="course-list">
+    <div class="course-card">
+      <div class="course-ico" style="background:rgba(66,133,244,0.2);">🚀</div>
+      <div class="course-content">
+        <div class="course-title">Get Started with Google AI in K-12 Education</div>
+        <div class="course-desc">專為 K-12 教師設計的 AI 入門課程，涵蓋 Gemini 在課堂的基礎應用，適合完全沒接觸過 AI 的老師。</div>
+        <div class="course-url">edu.exceedlms.com/student/path/1725537</div>
+      </div>
+      <div class="course-badge">免費</div>
+    </div>
+    <div class="course-card">
+      <div class="course-ico" style="background:rgba(52,168,83,0.2);">🤖</div>
+      <div class="course-content">
+        <div class="course-title">Generative AI for Educators</div>
+        <div class="course-desc">深入探討生成式 AI 的教育應用，涵蓋提示工程、AI 倫理、NotebookLM 操作等核心考試主題，備考首選。</div>
+        <div class="course-url">edu.exceedlms.com/student/path/1721586</div>
+      </div>
+      <div class="course-badge">免費</div>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- ═══ FAQ ═══ -->
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(251,188,4,0.18);">❓</div>
+    <div class="sec-title">常見問題 Q&amp;A</div>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q"><span class="qm">Q</span>需要教師資格才能報考嗎？</div>
+      <div class="faq-a"><strong>不需要！</strong>任何人都可以報名，不限職業、學歷或國籍。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="qm">Q</span>考試是中文還是英文？</div>
+      <div class="faq-a">目前<strong>僅英文版本</strong>，但考試全程可開 Gemini 輔助翻譯理解。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="qm">Q</span>需要學校教育信箱嗎？</div>
+      <div class="faq-a"><strong>個人 Gmail 即可</strong>完成報名、考試與領取證書。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="qm">Q</span>考試時可以查資料嗎？</div>
+      <div class="faq-a">可以開 Gemini <strong>輔助理解英文題意</strong>，但答案需自行判斷。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="qm">Q</span>需要監考或預約時間嗎？</div>
+      <div class="faq-a"><strong>不需要！</strong>在家自行應試，14 天內選方便時間即可。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="qm">Q</span>證書多久後寄達？</div>
+      <div class="faq-a">通過後<strong>即時</strong>寄至報名信箱，Accredible 徽章同步可取得。</div>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- ═══ TIPS ═══ -->
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(0,188,212,0.18);">⚡</div>
+    <div class="sec-title">備考攻略 <small>Pro Tips</small></div>
+  </div>
+  <div class="tips-list">
+    <div class="tip-row">
+      <div class="tip-ico">🎯</div>
+      <div class="tip-body">
+        <strong>Gemini 工具功能是最高頻考點</strong>
+        <span>Canvas（互動應用）、Guided Learning（引導學習）、Imagen（圖像）、Deep Research（深度研究）、Double Check（來源查核）五個工具的功能要分清楚。Canvas 做互動 HTML、Imagen 生成圖片、Guided Learning 引導討論，各有其適用場景。</span>
+      </div>
+    </div>
+    <div class="tip-row">
+      <div class="tip-ico">📔</div>
+      <div class="tip-body">
+        <strong>NotebookLM 是新增考題重點，不能忽略</strong>
+        <span>Audio Overview（可下載）、Inline Citations（內嵌引文）、Study Guide、Discover Tool 四個功能都會考。關鍵差異：NotebookLM 是「文件導向」，只根據你上傳的來源回答；Gemini 是「任務導向」，廣泛使用網路資料。</span>
+      </div>
+    </div>
+    <div class="tip-row">
+      <div class="tip-ico">📋</div>
+      <div class="tip-body">
+        <strong>提示工程的「四元素」要背起來</strong>
+        <span>Persona + Task + Context + Format，遇到「哪個是有效提示」的題目，選包含最多元素、最具體清晰的那個。「Write something for students」就是爛提示，「針對六年級學生，用條列格式，設計 5 個光合作用複習題」就是好提示。</span>
+      </div>
+    </div>
+    <div class="tip-row">
+      <div class="tip-ico">⚖️</div>
+      <div class="tip-body">
+        <strong>責任使用題目選「人工審核」一定對</strong>
+        <span>只要題目問「老師用 AI 生成了 X，下一步應該？」，答案幾乎都是「專業審核、批判性評估後再使用」。AI 是輔助，人的判斷不可省略，這是責任使用的核心原則。</span>
+      </div>
+    </div>
+    <div class="tip-row" style="border-color:rgba(66,133,244,0.3);background:rgba(66,133,244,0.06);flex-direction:column;gap:0;">
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <div class="tip-ico">🌐</div>
+        <div class="tip-body">
+          <strong>考試全程可用 Gemini Gem 截圖翻譯題目（官方允許！）</strong>
+          <span>進階做法：在 Gemini 建立專屬「<strong style="color:#fdd663;">AI 考題翻譯</strong>」Gem，考試時截圖上傳，Gem 自動輸出繁體中文翻譯，比複製貼上更快！</span>
+        </div>
+      </div>
+      <!-- 兩欄截圖模擬框 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
+        <!-- Gem 設定畫面 -->
+        <div class="screen">
+          <div class="screen-bar">
+            <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+            <div class="addr" style="font-size:10px;">gemini.google.com/app/...</div>
+          </div>
+          <div class="screen-body" style="padding:14px 16px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+              <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#4285f4,#34a853);display:flex;align-items:center;justify-content:center;font-size:12px;">✦</div>
+              <div style="font-size:13px;font-weight:700;color:#fff;">AI 考題翻譯與學術誠信</div>
+            </div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.7);line-height:1.7;background:rgba(255,255,255,0.04);border-radius:8px;padding:10px 12px;">
+              <div style="color:#6ab0ff;font-weight:700;margin-bottom:6px;">第一步：專家優化</div>
+              <div style="margin-bottom:4px;">○ <strong>角色任務</strong>：精通 EdTech 與雙語對譯的 AI 顧問</div>
+              <div style="margin-bottom:4px;">○ <strong>背景資訊</strong>：使用者提供英文線上檢定題目截圖，需翻譯成繁體中文</div>
+              <div>○ <strong>具體指令</strong>：翻譯題目與三個選項，完整保留單選題結構</div>
+            </div>
+            <div style="margin-top:10px;font-size:10.5px;color:rgba(255,255,255,0.4);text-align:center;">↑ 自訂 Gem 設定（考前先建好）</div>
+          </div>
+        </div>
+        <!-- 翻譯輸出畫面 -->
+        <div class="screen">
+          <div class="screen-bar">
+            <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+            <div class="addr" style="font-size:10px;">gemini.google.com · 翻譯結果</div>
+          </div>
+          <div class="screen-body" style="padding:14px 16px;">
+            <div style="font-size:12px;font-weight:700;color:#6ab0ff;margin-bottom:8px;">第二步：直接答覆</div>
+            <div style="font-size:11.5px;font-weight:700;color:#fff;margin-bottom:6px;">題目翻譯 · 問題 1 / 37</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:10px;">
+              一位老師擔心使用 Gemini 等 AI 工具來生成論文大綱，可能會無意中導致學生抄襲（即使是非故意的）。他們可以採取哪些行動來應對這項疑慮？
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px;font-size:10.5px;color:rgba(255,255,255,0.65);">
+              <div style="padding:5px 8px;background:rgba(255,255,255,0.04);border-radius:6px;">（ ）假設所有 AI 生成的內容皆為抄襲，並自動懲處學生。</div>
+              <div style="padding:5px 8px;background:rgba(255,255,255,0.04);border-radius:6px;">（ ）避免在任何作業中使用 AI 工具，並在全校範圍內封鎖。</div>
+              <div style="padding:5px 8px;background:rgba(52,168,83,0.15);border:1px solid rgba(52,168,83,0.3);border-radius:6px;color:#6fdd8c;">（✓）在課堂上實施明確的 AI 使用指南、強調學術誠信，並教導學生如何適當引用。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:12px;font-size:12.5px;color:rgba(255,255,255,0.55);padding:0 4px;">
+        💡 <strong style="color:#fbbc04;">Gem 使用流程</strong>：考試中截圖考題 → 上傳到 Gem → 取得中文翻譯 → 自行判斷答案選項。<strong>不要直接問 Gemini 哪個是正確答案。</strong>
+      </div>
+
+      <!-- 方法二：Chrome 內建翻譯 -->
+      <div style="margin-top:14px;background:rgba(52,168,83,0.08);border:1px solid rgba(52,168,83,0.25);border-radius:12px;padding:14px 16px;">
+        <div style="font-size:13.5px;font-weight:700;color:#6fdd8c;margin-bottom:10px;">⚡ 更快的方法：Chrome 內建翻譯（一鍵整頁翻）</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <!-- 右鍵選單 -->
+          <div class="screen">
+            <div class="screen-bar">
+              <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+              <div class="addr" style="font-size:10px;">edu.exceedlms.com · 右鍵選單</div>
+            </div>
+            <div class="screen-body" style="padding:12px;">
+              <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:8px;">在考題頁面任意處右鍵</div>
+              <div style="background:#2a2a3e;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);">
+                <div style="padding:8px 14px;font-size:12px;color:rgba(255,255,255,0.6);border-bottom:1px solid rgba(255,255,255,0.06);">上一頁 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Alt+向左鍵</div>
+                <div style="padding:8px 14px;font-size:12px;color:rgba(255,255,255,0.6);border-bottom:1px solid rgba(255,255,255,0.06);">重新載入 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ctrl+R</div>
+                <div style="padding:8px 14px;font-size:12px;color:rgba(255,255,255,0.6);border-bottom:1px solid rgba(255,255,255,0.06);">另存新檔... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ctrl+S</div>
+                <div style="padding:9px 14px;font-size:12.5px;color:#6fdd8c;font-weight:700;background:rgba(52,168,83,0.15);border-bottom:1px solid rgba(255,255,255,0.06);">▶ 翻譯成中文（繁體）</div>
+                <div style="padding:8px 14px;font-size:12px;color:rgba(255,255,255,0.6);">檢視網頁原始碼 &nbsp; Ctrl+U</div>
+              </div>
+            </div>
+          </div>
+          <!-- 翻譯後畫面 -->
+          <div class="screen">
+            <div class="screen-bar">
+              <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+              <div class="addr" style="font-size:10px;">edu.exceedlms.com · 已翻譯</div>
+            </div>
+            <div class="screen-body" style="padding:12px;">
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;background:rgba(255,255,255,0.06);border-radius:6px;padding:6px 10px;font-size:11px;">
+                <span style="color:rgba(255,255,255,0.5);">英文</span>
+                <span style="color:rgba(255,255,255,0.3);">→</span>
+                <span style="color:#4285f4;font-weight:700;">中文（繁體）</span>
+                <span style="color:rgba(255,255,255,0.3);margin-left:auto;font-size:10px;">Google Translate</span>
+              </div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:6px;">第 2 題（共 37 題）</div>
+              <div style="font-size:11.5px;color:#fff;line-height:1.6;margin-bottom:10px;">班上的學生一直在進行關於樂於助人的怪物的創意寫作。你想根據學生的描述產生一幅怪物的圖畫，下列哪一個提示最適合這項任務？</div>
+              <div style="font-size:10.5px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:10px;">
+                ○ 請為一隻喜歡吃垃圾的怪物取名字…<br>
+                ○ 創作一幅卡通風格的圖畫，描繪一個樂於助人的怪物…<br>
+                ○ 畫一個喜歡吃東西的怪物。
+              </div>
+              <div class="ui-btn btn-y" style="font-size:11px;padding:6px 18px;display:inline-block;">下一個 →</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:rgba(255,255,255,0.55);">
+          整頁瞬間翻譯，連按鈕「NEXT」都變成「<strong style="color:#6fdd8c;">下一個</strong>」，完全不需要切換分頁，是考試中最高效的翻譯方式！
+        </div>
+      </div>
+    </div>
+
+    <!-- 進階技巧：Chrome Gemini 側邊欄 -->
+    <div class="tip-row" style="border-color:rgba(234,67,53,0.35);background:rgba(234,67,53,0.06);flex-direction:column;gap:0;">
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <div class="tip-ico">🔒</div>
+        <div class="tip-body">
+          <strong style="color:#ff7b72;">隱藏技巧：Chrome「問問 Gemini」側邊欄直接解析考題</strong>
+          <span>Chrome 右上角「問問 Gemini」側邊欄可自動讀取考題頁面，搭配專屬 Gem「Gemini 認證測驗題解析」，按一下即可解析正確答案與解題思路。</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;">
+        <div class="screen">
+          <div class="screen-bar">
+            <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
+            <div class="addr" style="font-size:10px;">edu.exceedlms.com · 考試中 · Gemini 側邊欄</div>
+          </div>
+          <div class="screen-body" style="padding:12px;display:flex;gap:8px;">
+            <div style="flex:1;">
+              <div style="font-size:10px;color:rgba(255,255,255,0.45);margin-bottom:4px;">Question 16 of 37 &nbsp;·&nbsp; <span style="color:#ff7b72;">01:33:25</span></div>
+              <div style="font-size:10.5px;color:#fff;line-height:1.5;margin-bottom:8px;">An educator has a new school policy to read and understand, how can Gemini help? <em style="color:#fdd663;">(Select all which apply)</em></div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.6);line-height:1.9;">
+                <span style="color:#6fdd8c;">☑</span> Upload PDF → ask for Summary<br>
+                <span style="color:rgba(255,255,255,0.3);">☐</span> Use Deep Research<br>
+                <span style="color:#6fdd8c;">☑</span> Upload PDF → audio overview<br>
+                <span style="color:#6fdd8c;">☑</span> Upload PDF → Guided Learning
+              </div>
+            </div>
+            <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
+            <div style="width:130px;flex-shrink:0;">
+              <div style="font-size:10px;font-weight:700;color:#fff;margin-bottom:6px;">Gemini 認證測驗題解析</div>
+              <div style="background:rgba(66,133,244,0.2);border:1px solid rgba(66,133,244,0.4);border-radius:6px;padding:5px 8px;font-size:9.5px;color:#6ab0ff;margin-bottom:7px;">解釋此測驗題的正確答案 ›</div>
+              <div style="font-size:9.5px;color:rgba(255,255,255,0.5);line-height:1.6;"><strong style="color:#fdd663;">顯示思路 ▾</strong><br>內部事實查核程序：已比對 Gemini Educator Course 題庫與官方功能說明…</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:14px 16px;">
+          <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:10px;">啟用步驟</div>
+          <div style="font-size:11.5px;color:rgba(255,255,255,0.65);line-height:2.1;">
+            1️⃣ Chrome 右上角點「<strong style="color:#fdd663;">✦ 問問 Gemini</strong>」<br>
+            2️⃣ 建立 Gem「Gemini 認證測驗題解析」<br>
+            3️⃣ 開考後 Gem 自動讀取頁面考題<br>
+            4️⃣ 點「解釋此測驗題的正確答案」<br>
+            5️⃣ 取得含思路的完整解析
+          </div>
+          <div style="margin-top:10px;background:rgba(234,67,53,0.12);border:1px solid rgba(234,67,53,0.3);border-radius:8px;padding:8px 10px;font-size:11px;color:#ff7b72;line-height:1.65;">
+            ⚠️ <strong>風險提醒：</strong>此做法已超出「翻譯輔助」範疇，可能違反報名時簽署的 <strong>Exam NDA 學術誠信條款</strong>，請自行評估使用風險。
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer">
+  <div class="footer-txt">
+    製作日期 <strong>2026.06.08</strong>　·　資料來源：Google for Education 官方、mrmad.com.tw、steam.oxxostudio.tw、實際操作驗證
+  </div>
+  <div class="g-logo-dots">
+    <div class="gd-sm" style="background:#4285f4;"></div>
+    <div class="gd-sm" style="background:#ea4335;"></div>
+    <div class="gd-sm" style="background:#fbbc04;"></div>
+    <div class="gd-sm" style="background:#34a853;"></div>
+  </div>
+</div>
+
+</div><!-- /card -->
+</body>
+</html>
