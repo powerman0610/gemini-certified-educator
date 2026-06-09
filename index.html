@@ -305,7 +305,8 @@
   .course-content { flex:1; }
   .course-title { font-size:13.5px; font-weight:700; color:#fff; margin-bottom:4px; line-height:1.4; }
   .course-desc  { font-size:12px; color:rgba(255,255,255,0.5); margin-bottom:8px; line-height:1.55; }
-  .course-url   { font-size:11px; color:#6ab0ff; font-family:monospace; background:rgba(66,133,244,0.1); border-radius:6px; padding:3px 9px; display:inline-block; }
+  .course-url   { font-size:11px; color:#6ab0ff; font-family:monospace; background:rgba(66,133,244,0.1); border-radius:6px; padding:3px 9px; display:inline-block; text-decoration:none; }
+  .course-url:hover, .course-url:focus-visible { text-decoration:underline; }
   .course-badge { background:rgba(52,168,83,0.2); border:1px solid rgba(52,168,83,0.3); border-radius:999px; padding:4px 14px; font-size:11px; font-weight:700; color:#6fdd8c; flex-shrink:0; }
 
   /* ── FAQ ── */
@@ -387,6 +388,31 @@
   .source-link { color:#6ab0ff; text-decoration:none; }
   .source-link:hover, .source-link:focus-visible { text-decoration:underline; }
   section[id] { scroll-margin-top:70px; }
+  .workshop-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:12px;
+  }
+  .workshop-card {
+    background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.08);
+    border-radius:14px; padding:17px 18px;
+  }
+  .workshop-card .num {
+    display:inline-flex; width:28px; height:28px; align-items:center; justify-content:center;
+    border-radius:9px; background:rgba(66,133,244,.2); color:#6ab0ff;
+    font-size:12px; font-weight:900; margin-bottom:9px;
+  }
+  .workshop-card strong { display:block; color:#fff; font-size:13.5px; margin-bottom:5px; }
+  .workshop-card span { color:rgba(255,255,255,.58); font-size:12px; line-height:1.7; }
+  .info-legend {
+    display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;
+  }
+  .legend-chip {
+    border-radius:999px; padding:5px 11px; font-size:10.5px; font-weight:700;
+    border:1px solid rgba(255,255,255,.1);
+  }
+  .legend-official { color:#6fdd8c; background:rgba(52,168,83,.13); }
+  .legend-observed { color:#6ab0ff; background:rgba(66,133,244,.13); }
+  .legend-change { color:#fdd663; background:rgba(251,188,4,.12); }
+  .official-domains { grid-template-columns:repeat(3,1fr); }
 
   @media (max-width:700px) {
     body { padding:0; }
@@ -400,7 +426,7 @@
     .stat-item:last-child { grid-column:1/-1; border-top:1px solid rgba(255,255,255,.06); }
     .section { padding:28px 22px; }
     .official-actions { padding:18px 22px; }
-    .tools-grid, .topics-grid, .qa-2col, .faq-grid,
+    .tools-grid, .topics-grid, .qa-2col, .faq-grid, .workshop-grid,
     .form-grid, [style*="grid-template-columns:1fr 1fr"] {
       grid-template-columns:1fr !important;
     }
@@ -441,7 +467,7 @@
       <div class="title-zh">Google <em>Gemini</em><br>教育認證</div>
       <div class="header-sub">
         <strong>免費</strong>取得 Google 官方 AI 教師認證<br>
-        37 題 · 2 小時 · 在家即可應試 · 即時顯示成績
+        官方作答時間 2 小時 · 免費報考 · 在家即可應試
       </div>
       <div class="pills">
         <span class="pill pill-green">✓ 完全免費</span>
@@ -457,8 +483,8 @@
         <div class="badge-value" style="color:#fdd663;font-size:24px;">3 年</div>
       </div>
       <div class="badge-row">
-        <div class="badge-label">及格標準</div>
-        <div class="badge-value">30 / 37 題</div>
+        <div class="badge-label">本次實測結果</div>
+        <div class="badge-value">30 / 37 通過</div>
       </div>
       <div class="badge-row" style="margin-bottom:0;">
         <div class="badge-label">認證名稱</div>
@@ -469,6 +495,7 @@
 </div>
 
 <nav class="quick-nav" aria-label="快速導覽">
+  <a href="#workshop">研習導讀</a>
   <a href="#steps">報名步驟</a>
   <a href="#topics">考試範圍</a>
   <a href="#tools">工具重點</a>
@@ -481,6 +508,7 @@
 <div class="official-actions">
   <a class="official-link" href="https://educertifications.google/" target="_blank" rel="noopener noreferrer">前往官方認證入口 ↗</a>
   <a class="official-link secondary" href="https://support.google.com/googleforeducation/answer/16561655?hl=zh-Hant" target="_blank" rel="noopener noreferrer">查看官方 FAQ ↗</a>
+  <a class="official-link secondary" href="https://services.google.com/fh/files/misc/geminieducatorexamguide.pdf" target="_blank" rel="noopener noreferrer">下載官方 Exam Guide ↗</a>
   <div class="note">本頁為非官方繁體中文整理。考試語言、題數、及格標準與使用工具規範可能調整，報名前請以 Google 官方頁面顯示為準。</div>
 </div>
 
@@ -488,7 +516,7 @@
 <div class="stats-bar">
   <div class="stat-item">
     <div class="stat-val c-b">37</div>
-    <div class="stat-lab">題<br>選擇/是非/多選</div>
+    <div class="stat-lab">題<br>本次實測題數</div>
   </div>
   <div class="stat-item">
     <div class="stat-val c-y">2<span style="font-size:15px">hr</span></div>
@@ -496,7 +524,7 @@
   </div>
   <div class="stat-item">
     <div class="stat-val c-g">30</div>
-    <div class="stat-lab">題以上<br>方可通過</div>
+    <div class="stat-lab">題<br>本次實測及格</div>
   </div>
   <div class="stat-item">
     <div class="stat-val c-r">14<span style="font-size:14px">天</span></div>
@@ -507,6 +535,45 @@
     <div class="stat-lab">費用<br>完全免費</div>
   </div>
 </div>
+
+<hr class="div">
+
+<section class="section" id="workshop">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(66,133,244,0.18);">🧭</div>
+    <div class="sec-title">研習導讀 <small>先掌握方向，再深入細節</small></div>
+  </div>
+  <div class="callout callout-g" style="margin:0 0 16px;">
+    <span>🎯</span>
+    <span><strong>完成本次研習後，你應能：</strong>說明認證流程、辨識三大測驗能力領域、為教學情境選擇合適的 Gemini／NotebookLM 工具，並用 PARTS 框架寫出清楚提示。</span>
+  </div>
+  <div class="workshop-grid">
+    <div class="workshop-card">
+      <div class="num">1</div>
+      <strong>先看認證流程</strong>
+      <span>了解報名、14 天期限、2 小時作答、Review 與 Submit 的完整流程。</span>
+    </div>
+    <div class="workshop-card">
+      <div class="num">2</div>
+      <strong>再學三大能力</strong>
+      <span>生成式 AI 基礎、教育實作，以及負責任使用，是官方 Exam Guide 的主架構。</span>
+    </div>
+    <div class="workshop-card">
+      <div class="num">3</div>
+      <strong>最後做情境練習</strong>
+      <span>重點不是死背功能，而是判斷「此教學需求應選哪個工具、為什麼」。</span>
+    </div>
+  </div>
+  <div class="callout callout-y" style="margin:16px 0 0;">
+    <span>🧰</span>
+    <span><strong>現場操作前準備：</strong>請先確認可登入 Google 帳號，並使用最新版 Chrome。部分 Gemini、NotebookLM 與 Workspace 功能會因帳號類型、管理員設定或地區而不同；研習中看不到相同按鈕時，先確認帳號權限，不代表操作錯誤。</span>
+  </div>
+  <div class="info-legend" aria-label="資訊來源標示">
+    <span class="legend-chip legend-official">官方確認：FAQ／Exam Guide</span>
+    <span class="legend-chip legend-observed">實測紀錄：畫面與題數可能調整</span>
+    <span class="legend-chip legend-change">可能變動：語言、功能與介面</span>
+  </div>
+</section>
 
 <!-- ═══ STEP-BY-STEP ═══ -->
 <section class="section" id="steps">
@@ -643,12 +710,12 @@
     <div class="step-body">
       <div class="step-title">（建議）先完成官方免費備考課程</div>
       <div class="step-desc">
-        報名後先別急著應試！Google Learning Center 提供兩門<strong>完全免費</strong>課程，涵蓋考試所有主題，約 <strong>3–5 小時</strong>完成，通過率大幅提升。<br>
-        特別注意：本次考試新增 <strong>NotebookLM</strong> 相關題目，務必熟悉其功能！
+        報名後先別急著應試！建議先閱讀官方 Exam Guide，再完成 Google Learning Center 的免費課程。<br>
+        準備時除了 Gemini，也要熟悉 <strong>Gems、NotebookLM、PARTS 提示框架與負責任使用</strong>等官方學習目標。
       </div>
       <div class="callout callout-y">
         <span>💡</span>
-        <span><strong>小提醒：</strong>考試全程可開著 Gemini 協助理解英文題意。遇到不懂的字直接貼給 Gemini 翻譯，<strong>這是被允許的</strong>！但答案仍需自己判斷。</span>
+        <span><strong>小提醒：</strong>若英文閱讀較吃力，可在考前熟悉 Chrome 或雙語翻譯工具；正式應試時是否可使用外部工具，請以當下顯示的考試規範為準。</span>
       </div>
     </div>
   </div>
@@ -673,7 +740,7 @@
             You are registered for the<br><span style="color:#6ab0ff;">Gemini Educator exam</span>
           </div>
           <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:20px;max-width:480px;margin-left:auto;margin-right:auto;">
-            Thank you for registering for this exam. You will have <strong style="color:#fdd663;">14 days</strong> to start the exam. You may start the exam now by clicking the Take Exam button below, or launch via the Google for Education Certification Launchpad before <strong style="color:#ff7b72;">6月 22日, 2026年</strong>.
+            Thank you for registering for this exam. You will have <strong style="color:#fdd663;">14 days</strong> to start the exam. You may start the exam now by clicking the Take Exam button below, or launch via the Google for Education Certification Launchpad before <strong style="color:#ff7b72;">the deadline shown in your account</strong>.
           </div>
           <div style="display:flex;gap:12px;justify-content:center;">
             <div class="ui-btn btn-b" style="padding:10px 20px;font-size:12px;border:1px solid rgba(255,255,255,0.2);background:transparent;">Go to GCE Launchpad</div>
@@ -695,7 +762,7 @@
       <div class="step-title">確認語言 → 登入 Learning Center → 按 LAUNCH 開考</div>
       <div class="step-desc">
         點確認頁的「Take Exam」後，<strong>不是直接進考試</strong>，還有三個步驟：<br>
-        ① <strong>語言確認頁</strong>（Welcome to the Gemini Educator Exam）：選 English，再點「Take Exam」<br>
+        ① <strong>語言確認頁</strong>（Welcome to the Gemini Educator Exam）：選擇頁面提供且適合你的語言（本次實測選 English），再點「Take Exam」<br>
         ② 跳轉到 <em>edu.exceedlms.com</em>，顯示「Authentication Required」，點 <strong>「Sign in with Google」</strong><br>
         ③ 選擇<strong>與報名時相同的 Google 帳號</strong>，進入 Learning Center 後按 <strong>「LAUNCH」</strong> 才正式開考
       </div>
@@ -799,8 +866,8 @@
       <div class="step-title">Submit 繳交，即時顯示成績</div>
       <div class="step-desc">
         捲到 Review 頁最底部，點 <strong>「Submit」</strong> 正式繳交。<br>
-        系統<strong>即時顯示成績</strong>，37 題需答對 <strong>30 題（≈81%）</strong>以上方可通過。<br>
-        未通過可按重考規則免費重試（次數不限）。
+        系統會顯示成績；本次實測為 37 題，答對 <strong>30 題（約 81%）</strong>時顯示通過。題數與判定方式未見於官方 FAQ，日後可能調整。<br>
+        未通過或逾時後，依官方 FAQ 須等待 14 天才能再次報考。
       </div>
       <div class="screen">
         <div class="screen-bar">
@@ -812,7 +879,7 @@
           <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;margin-bottom:20px;">
             <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ea4335,#fbbc04);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;">S</div>
             <div>
-              <div style="font-size:11px;color:rgba(255,255,255,0.5);">Completed: Jun 8 · 10:27 AM</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.5);">Completed: [日期與時間]</div>
               <div style="font-size:13px;font-weight:600;color:#fff;">（帳號名稱）</div>
             </div>
           </div>
@@ -842,7 +909,7 @@
       </div>
       <div class="callout callout-g" style="margin-top:14px;">
         <span>🏆</span>
-        <span><strong>實際測試成績：34/37，得分 92%</strong>（及格線 30/37 = 81%），從報名到完成考試約 <strong>45 分鐘</strong>！</span>
+        <span><strong>個人實測紀錄：34/37，得分 92%</strong>；當次 30/37 顯示通過，從報名到完成考試約 <strong>45 分鐘</strong>。此為經驗紀錄，不代表官方固定規格。</span>
       </div>
     </div>
   </div>
@@ -994,55 +1061,44 @@
 <div class="section" id="topics">
   <div class="sec-header">
     <div class="sec-icon" style="background:rgba(52,168,83,0.18);">📚</div>
-    <div class="sec-title">考試四大主題 <small>What's on the Exam</small></div>
+    <div class="sec-title">官方三大能力領域 <small>依 Gemini Certified Educator Exam Guide</small></div>
   </div>
-  <div class="topics-grid">
+  <div class="callout callout-b" style="margin:0 0 18px;">
+    <span>ℹ️</span>
+    <span>官方 FAQ 說明：測驗聚焦 Gemini 免費功能；可能出現付費功能的學習題，但這類題目不計分。準備時仍應理解不同工具的適用情境。</span>
+  </div>
+  <div class="topics-grid official-domains">
     <div class="topic-box tb1">
-      <div class="tb-num">Topic 01 · AI 基礎觀念</div>
-      <div class="tb-title">Generative AI &amp; Gemini 核心原理</div>
+      <div class="tb-num">Domain 01 · 理解</div>
+      <div class="tb-title">Understanding Generative AI &amp; Gemini</div>
       <ul class="tb-list">
-        <li><strong>Hallucination（幻覺）</strong>：AI 生成錯誤或捏造資訊</li>
-        <li><strong>Bias（偏見）</strong>：訓練資料造成的系統性不公</li>
-        <li><strong>Prompt（提示）</strong>：給 AI 的指令或問題</li>
-        <li><strong>Human in the loop</strong>：人工審核確保品質</li>
-        <li>生成式 AI vs 機器學習 vs 大型語言模型</li>
-        <li>Workspace for Education 資料不用於訓練 Gemini</li>
+        <li>GenAI、LLM、Prompt 等基礎術語</li>
+        <li>生成式 AI 與其他 AI 的差異</li>
+        <li>Gemini 如何輔助而非取代教師</li>
+        <li>Gemini App、Gems、NotebookLM 的適用情境</li>
+        <li>Workspace 整合、隱私與資料保護觀念</li>
       </ul>
     </div>
     <div class="topic-box tb2">
-      <div class="tb-num">Topic 02 · AI 倫理與責任使用</div>
-      <div class="tb-title">Responsible AI &amp; Ethics 倫理規範</div>
+      <div class="tb-num">Domain 02 · 應用與創作</div>
+      <div class="tb-title">Implementing Gemini in Educational Practice</div>
       <ul class="tb-list">
-        <li>AI 生成內容<strong>必須明確標註來源</strong></li>
-        <li>引導學生批判性評估 AI 準確性與偏見</li>
-        <li>與教科書、可靠來源交叉比對</li>
-        <li>用 Version History 查驗是否透過 AI 完成作業</li>
-        <li>AI 是「輔助」而非「取代」人工判斷</li>
-        <li>學術誠信與數位責任規範</li>
+        <li>使用 <strong>PARTS</strong> 框架撰寫有效提示</li>
+        <li>上傳來源，使 Gemini／NotebookLM 回答有依據</li>
+        <li>差異化教材、測驗、評量規準與行政溝通</li>
+        <li>Gems、Canvas、Imagen 4 與 NotebookLM 輸出</li>
+        <li>理解 Docs、Gmail、Forms、Vids 等進階情境</li>
       </ul>
     </div>
     <div class="topic-box tb3">
-      <div class="tb-num">Topic 03 · 提示工程</div>
-      <div class="tb-title">Prompt Engineering 四大核心元素</div>
+      <div class="tb-num">Domain 03 · 評估與責任</div>
+      <div class="tb-title">Responsible AI Use in Education</div>
       <ul class="tb-list">
-        <li><strong>Persona（角色）</strong>：要求 AI 扮演特定專家角色</li>
-        <li><strong>Task（任務）</strong>：具體的執行指令</li>
-        <li><strong>Context（背景）</strong>：提供相關情境資訊</li>
-        <li><strong>Format（格式）</strong>：指定輸出格式、字數、受眾</li>
-        <li>有效提示特徵：清晰、具體、有情境</li>
-        <li>Gem 功能：儲存重複使用的提示</li>
-      </ul>
-    </div>
-    <div class="topic-box tb4">
-      <div class="tb-num">Topic 04 · 教學實作應用</div>
-      <div class="tb-title">Classroom Application 課堂場景</div>
-      <ul class="tb-list">
-        <li>差異化教學：針對不同閱讀程度生成多份摘要</li>
-        <li>課程計畫初稿後，<strong>必須由教師專業審核編輯</strong></li>
-        <li>科學課：用 Canvas 建立互動式模擬實驗</li>
-        <li>歷史課：引導學生比對 AI 與教科書差異</li>
-        <li>行政：家長信、職缺描述、校規摘要</li>
-        <li>用 Gemini 作為思考夥伴發想課程構想</li>
+        <li>偏見、透明度、隱私與數位責任</li>
+        <li>辨識幻覺、不準確與不適齡內容</li>
+        <li>處理抄襲、過度依賴與學術誠信</li>
+        <li>依教學目的判斷何時該用或不該用 AI</li>
+        <li>設計班級 AI 使用規範與討論活動</li>
       </ul>
     </div>
   </div>
@@ -1054,7 +1110,7 @@
 <div class="section" id="tools">
   <div class="sec-header">
     <div class="sec-icon" style="background:rgba(66,133,244,0.18);">⚙️</div>
-    <div class="sec-title">Gemini 工具功能詳解 <small>必考工具知識</small></div>
+    <div class="sec-title">Gemini 工具功能詳解 <small>對照官方學習目標</small></div>
   </div>
 
   <div class="tools-header">Gemini Apps 常見工具</div>
@@ -1075,11 +1131,17 @@
       <div class="tool-desc">以問題、提示、視覺教材與逐步說明協助深入理解主題，重點是引導學習過程，而不只是直接提供答案。</div>
       <span class="tool-tag tt-g">引導式學習</span>
     </div>
+    <div class="tool-card tc-p">
+      <div class="tool-icon">💎</div>
+      <div class="tool-name">Gems</div>
+      <div class="tool-desc">把角色、任務與規則儲存成可重複使用的自訂助理，也能加入檔案作為知識背景，適合固定的教學或行政流程。</div>
+      <span class="tool-tag tt-p">重複工作</span>
+    </div>
     <div class="tool-card tc-r" style="--tc-r:1;">
       <div class="tool-icon">🎨</div>
-      <div class="tool-name">圖像生成與編輯</div>
-      <div class="tool-desc">可依文字提示生成圖片，也能使用 Nano Banana 編輯已生成或上傳的圖片，並可融合多張參考圖建立新圖。</div>
-      <span class="tool-tag" style="background:rgba(234,67,53,0.18);color:#ff7b72;">Nano Banana</span>
+      <div class="tool-name">Imagen 4 / Nano Banana</div>
+      <div class="tool-desc">Imagen 4 用於依提示生成教學圖片；目前 Gemini 也可用 Nano Banana 編輯上傳或已生成圖片，並融合多張參考圖。</div>
+      <span class="tool-tag" style="background:rgba(234,67,53,0.18);color:#ff7b72;">圖像生成與編修</span>
     </div>
     <div class="tool-card tc-y">
       <div class="tool-icon">🔍</div>
@@ -1148,7 +1210,7 @@
 <div class="section" id="comparison">
   <div class="sec-header">
     <div class="sec-icon" style="background:rgba(161,66,244,0.18);">⚖️</div>
-    <div class="sec-title">Gemini vs NotebookLM 比較 <small>常見考題核心</small></div>
+    <div class="sec-title">Gemini vs NotebookLM 比較 <small>快速判斷工具選擇</small></div>
   </div>
   <table class="compare-table">
     <tr>
@@ -1218,13 +1280,14 @@
     <!-- 提示工程 -->
     <div class="qa-card">
       <div class="qa-type qt-concept">概念題 · 提示工程</div>
-      <div class="qa-q-text">撰寫有效提示時的四個主要面向是？</div>
+      <div class="qa-q-text">Google LearnLM Prompt Guide 建議的 PARTS 框架包含哪些元素？</div>
       <div class="qa-opts">
         <div class="qa-opt"><div class="oa">A</div>Length、Speed、Detail、Tone</div>
-        <div class="qa-opt"><div class="oa">B</div>Grammar、Spelling、Urgency、Topic</div>
-        <div class="qa-opt ans"><div class="oa">C</div>Persona（角色）、Task（任務）、Context（背景）、Format（格式）✓</div>
-        <div class="qa-opt"><div class="oa">D</div>Recipient、Sender、Subject、Body</div>
+        <div class="qa-opt"><div class="oa">B</div>Prompt、Accuracy、Review、Tone、Source</div>
+        <div class="qa-opt ans"><div class="oa">C</div>Persona、Act、Recipient、Theme、Structure ✓</div>
+        <div class="qa-opt"><div class="oa">D</div>Purpose、Audience、Rubric、Task、Summary</div>
       </div>
+      <div class="qa-note"><strong>快速記法：</strong>角色要做什麼，給誰、談什麼、用什麼格式呈現。</div>
     </div>
 
     <div class="qa-2col">
@@ -1243,12 +1306,12 @@
       <!-- 是非題 -->
       <div class="qa-card">
         <div class="qa-type qt-multi">是非題</div>
-        <div class="qa-q-text">Workspace for Education 帳戶的資料，會被 Google 用來訓練 Gemini 模型？</div>
+        <div class="qa-q-text">使用具企業級資料保護（提示框可見盾牌圖示）的 Workspace for Education 帳戶時，聊天內容會在未經許可下交由人工審閱或用於訓練網域外的生成式 AI 模型？</div>
         <div class="qa-opts">
           <div class="qa-opt"><div class="oa">○</div>正確（True）</div>
           <div class="qa-opt ans"><div class="oa">●</div>錯誤（False）✓</div>
         </div>
-        <div class="qa-note">教育帳戶資料受 Google 隱私政策保護，<strong>不會</strong>用於訓練 AI 模型。</div>
+        <div class="qa-note">答案為否。實際資料保護層級仍取決於 Workspace 版本；研習時可先請學員登入 Gemini，查看提示框是否有<strong>盾牌圖示</strong>。</div>
       </div>
     </div>
 
@@ -1312,23 +1375,23 @@
 <div class="section" id="retake">
   <div class="sec-header">
     <div class="sec-icon" style="background:rgba(234,67,53,0.18);">🔄</div>
-    <div class="sec-title">重考規則 <small>Retake Policy — 次數無限、重考免費</small></div>
+    <div class="sec-title">期限與重考規則 <small>依 Google 官方 FAQ</small></div>
   </div>
   <div class="retake-row">
     <div class="retake-box">
-      <div class="retake-attempt">第 1 次未通過</div>
-      <div class="retake-days c-b">3<span style="font-size:15px">天後</span></div>
-      <div class="retake-label">可申請重考</div>
+      <div class="retake-attempt">報名完成後</div>
+      <div class="retake-days c-b">14<span style="font-size:15px">天內</span></div>
+      <div class="retake-label">須啟動並完成考試</div>
     </div>
     <div class="retake-box">
-      <div class="retake-attempt">第 2 次未通過</div>
-      <div class="retake-days c-y">7<span style="font-size:15px">天後</span></div>
-      <div class="retake-label">可申請重考</div>
+      <div class="retake-attempt">按下 TAKE EXAM 後</div>
+      <div class="retake-days c-y">2<span style="font-size:15px">小時</span></div>
+      <div class="retake-label">逾時會收到 FAIL 狀態</div>
     </div>
     <div class="retake-box">
-      <div class="retake-attempt">第 3 次以後</div>
+      <div class="retake-attempt">未通過或逾時</div>
       <div class="retake-days c-g">14<span style="font-size:15px">天後</span></div>
-      <div class="retake-label">每次等待 14 天</div>
+      <div class="retake-label">可再次報考</div>
     </div>
   </div>
 </div>
@@ -1343,11 +1406,29 @@
   </div>
   <div class="course-list">
     <div class="course-card">
+      <div class="course-ico" style="background:rgba(251,188,4,0.18);">📘</div>
+      <div class="course-content">
+        <div class="course-title">Gemini Certified Educator Exam Guide</div>
+        <div class="course-desc">官方測驗藍圖，列出三大能力領域與所有學習目標。研習與備考都應以這份文件為主。</div>
+        <a class="course-url" href="https://services.google.com/fh/files/misc/geminieducatorexamguide.pdf" target="_blank" rel="noopener noreferrer">開啟官方 Exam Guide ↗</a>
+      </div>
+      <div class="course-badge">必讀</div>
+    </div>
+    <div class="course-card">
+      <div class="course-ico" style="background:rgba(161,66,244,0.18);">✍️</div>
+      <div class="course-content">
+        <div class="course-title">LearnLM Prompt Guide</div>
+        <div class="course-desc">Google 官方提示設計指南，以 Persona、Act、Recipient、Theme、Structure 五個元素說明 PARTS 框架，可搭配本頁練習題使用。</div>
+        <a class="course-url" href="https://services.google.com/fh/files/misc/learnlm_prompt_guide.pdf" target="_blank" rel="noopener noreferrer">開啟官方 Prompt Guide ↗</a>
+      </div>
+      <div class="course-badge">PARTS</div>
+    </div>
+    <div class="course-card">
       <div class="course-ico" style="background:rgba(66,133,244,0.2);">🚀</div>
       <div class="course-content">
         <div class="course-title">Get Started with Google AI in K-12 Education</div>
         <div class="course-desc">專為 K-12 教師設計的 AI 入門課程，涵蓋 Gemini 在課堂的基礎應用，適合完全沒接觸過 AI 的老師。</div>
-        <div class="course-url">edu.exceedlms.com/student/path/1725537</div>
+        <a class="course-url" href="https://edu.exceedlms.com/student/path/1725537" target="_blank" rel="noopener noreferrer">開啟官方課程 ↗</a>
       </div>
       <div class="course-badge">免費</div>
     </div>
@@ -1356,7 +1437,7 @@
       <div class="course-content">
         <div class="course-title">Generative AI for Educators</div>
         <div class="course-desc">深入探討生成式 AI 的教育應用，涵蓋提示工程、AI 倫理、NotebookLM 操作等核心考試主題，備考首選。</div>
-        <div class="course-url">edu.exceedlms.com/student/path/1721586</div>
+        <a class="course-url" href="https://edu.exceedlms.com/student/path/1721586" target="_blank" rel="noopener noreferrer">開啟官方課程 ↗</a>
       </div>
       <div class="course-badge">免費</div>
     </div>
@@ -1374,7 +1455,7 @@
   <div class="faq-grid">
     <div class="faq-item">
       <div class="faq-q"><span class="qm">Q</span>需要教師資格才能報考嗎？</div>
-      <div class="faq-a"><strong>不需要！</strong>任何人都可以報名，不限職業、學歷或國籍。</div>
+      <div class="faq-a">官方沒有設定正式先修條件；此認證主要為全球 K-12 教育工作者設計，建議先具備生成式 AI 與 Gemini 的基礎操作經驗。</div>
     </div>
     <div class="faq-item">
       <div class="faq-q"><span class="qm">Q</span>考試是中文還是英文？</div>
@@ -1390,11 +1471,11 @@
     </div>
     <div class="faq-item">
       <div class="faq-q"><span class="qm">Q</span>需要監考或預約時間嗎？</div>
-      <div class="faq-a"><strong>不需要！</strong>在家自行應試，14 天內選方便時間即可。</div>
+      <div class="faq-a">依目前流程不需預約考場，可在線上自行應試；報名後須在 14 天內啟動並完成，啟動後有 2 小時。</div>
     </div>
     <div class="faq-item">
       <div class="faq-q"><span class="qm">Q</span>證書多久後寄達？</div>
-      <div class="faq-a">通過後<strong>即時</strong>寄至報名信箱，Accredible 徽章同步可取得。</div>
+      <div class="faq-a">通過後請先查看報名信箱與垃圾郵件；若仍未收到，可登入 <strong>Accredible</strong> 查找證書。寄送時間可能因系統而異。</div>
     </div>
   </div>
 </div>
@@ -1411,7 +1492,7 @@
     <div class="tip-row">
       <div class="tip-ico">🎯</div>
       <div class="tip-body">
-        <strong>Gemini 工具功能是最高頻考點</strong>
+        <strong>先理解情境，再選擇合適工具</strong>
         <span>建議分清 Canvas（文件、簡報、程式與應用創作）、Guided Learning（引導學習）、圖像生成與編輯、Deep Research（多來源研究），以及 Sources / Double-check（來源與搜尋比對）的適用情境。</span>
       </div>
     </div>
@@ -1425,8 +1506,8 @@
     <div class="tip-row">
       <div class="tip-ico">📋</div>
       <div class="tip-body">
-        <strong>掌握提示工程的四個常見元素</strong>
-        <span>Persona + Task + Context + Format。有效提示通常會清楚說明對象、任務、背景與輸出格式，例如「針對六年級學生，用條列格式設計 5 個光合作用複習題」。</span>
+        <strong>用 PARTS 五元素寫出可教、可用的提示</strong>
+        <span><strong>P</strong>ersona 角色、<strong>A</strong>ct 行動、<strong>R</strong>ecipient 對象、<strong>T</strong>heme 主題、<strong>S</strong>tructure 結構。例如：「你是自然科教學設計師，請為六年級學生設計光合作用複習活動，以 5 題選擇題加答案解析呈現。」</span>
       </div>
     </div>
     <div class="tip-row">
