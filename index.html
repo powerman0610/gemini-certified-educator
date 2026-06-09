@@ -1439,108 +1439,34 @@
         <span>可以在考前請 Gemini 根據官方 Exam Guide 產生自編練習題、解釋工具差異並檢查理解。正式考試時，不要要求 AI 解析答案、截圖上傳題目或散布考題內容；若規則有更新，以報名與應試頁面顯示的條款為準。</span>
       </div>
     </div>
-    <div class="tip-row" hidden style="border-color:rgba(66,133,244,0.3);background:rgba(66,133,244,0.06);flex-direction:column;gap:0;">
+    <div class="tip-row" style="border-color:rgba(66,133,244,0.3);background:rgba(66,133,244,0.06);flex-direction:column;gap:0;">
       <div style="display:flex;gap:14px;align-items:flex-start;">
         <div class="tip-ico">🌐</div>
         <div class="tip-body">
-          <strong>考試全程可用 Gemini Gem 截圖翻譯題目（官方允許！）</strong>
-          <span>進階做法：在 Gemini 建立專屬「<strong style="color:#fdd663;">AI 考題翻譯</strong>」Gem，考試時截圖上傳，Gem 自動輸出繁體中文翻譯，比複製貼上更快！</span>
+          <strong>英文頁面翻譯：可依閱讀習慣選擇兩種方式</strong>
+          <span>如果只是想快速看懂內容，可使用 Chrome 內建翻譯；若希望同時核對英文原文與繁體中文，可安裝「沉浸式翻譯」使用雙語對照模式。</span>
         </div>
       </div>
-      <!-- 兩欄截圖模擬框 -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
-        <!-- Gem 設定畫面 -->
-        <div class="screen">
-          <div class="screen-bar">
-            <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
-            <div class="addr" style="font-size:10px;">gemini.google.com/app/...</div>
+        <div style="background:rgba(52,168,83,0.08);border:1px solid rgba(52,168,83,0.25);border-radius:12px;padding:16px;">
+          <div style="font-size:13.5px;font-weight:700;color:#6fdd8c;margin-bottom:8px;">方法一：Chrome 內建翻譯</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.62);line-height:1.75;">
+            在頁面空白處按右鍵，選擇「翻譯成中文（繁體）」。翻譯速度快、免安裝其他工具，但中文譯文會取代英文原文。
           </div>
-          <div class="screen-body" style="padding:14px 16px;">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-              <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#4285f4,#34a853);display:flex;align-items:center;justify-content:center;font-size:12px;">✦</div>
-              <div style="font-size:13px;font-weight:700;color:#fff;">AI 考題翻譯與學術誠信</div>
-            </div>
-            <div style="font-size:11px;color:rgba(255,255,255,0.7);line-height:1.7;background:rgba(255,255,255,0.04);border-radius:8px;padding:10px 12px;">
-              <div style="color:#6ab0ff;font-weight:700;margin-bottom:6px;">第一步：專家優化</div>
-              <div style="margin-bottom:4px;">○ <strong>角色任務</strong>：精通 EdTech 與雙語對譯的 AI 顧問</div>
-              <div style="margin-bottom:4px;">○ <strong>背景資訊</strong>：使用者提供英文線上檢定題目截圖，需翻譯成繁體中文</div>
-              <div>○ <strong>具體指令</strong>：翻譯題目與三個選項，完整保留單選題結構</div>
-            </div>
-            <div style="margin-top:10px;font-size:10.5px;color:rgba(255,255,255,0.4);text-align:center;">↑ 自訂 Gem 設定（考前先建好）</div>
-          </div>
+          <div style="margin-top:10px;font-size:11px;color:#6fdd8c;">適合：想快速閱讀中文內容</div>
         </div>
-        <!-- 翻譯輸出畫面 -->
-        <div class="screen">
-          <div class="screen-bar">
-            <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
-            <div class="addr" style="font-size:10px;">gemini.google.com · 翻譯結果</div>
+        <div style="background:rgba(161,66,244,0.08);border:1px solid rgba(161,66,244,0.28);border-radius:12px;padding:16px;">
+          <div style="font-size:13.5px;font-weight:700;color:#cf9bff;margin-bottom:8px;">方法二：沉浸式翻譯（中英文並存）</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.62);line-height:1.75;">
+            安裝瀏覽器擴充功能後，點右側翻譯圖示或按 <strong style="color:#fff;">Alt+A</strong>。選擇「雙語對照」後，中文譯文會顯示在英文原文下方，方便逐段核對。
           </div>
-          <div class="screen-body" style="padding:14px 16px;">
-            <div style="font-size:12px;font-weight:700;color:#6ab0ff;margin-bottom:8px;">第二步：直接答覆</div>
-            <div style="font-size:11.5px;font-weight:700;color:#fff;margin-bottom:6px;">題目翻譯 · 問題 1 / 37</div>
-            <div style="font-size:11px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:10px;">
-              一位老師擔心使用 Gemini 等 AI 工具來生成論文大綱，可能會無意中導致學生抄襲（即使是非故意的）。他們可以採取哪些行動來應對這項疑慮？
-            </div>
-            <div style="display:flex;flex-direction:column;gap:5px;font-size:10.5px;color:rgba(255,255,255,0.65);">
-              <div style="padding:5px 8px;background:rgba(255,255,255,0.04);border-radius:6px;">（ ）假設所有 AI 生成的內容皆為抄襲，並自動懲處學生。</div>
-              <div style="padding:5px 8px;background:rgba(255,255,255,0.04);border-radius:6px;">（ ）避免在任何作業中使用 AI 工具，並在全校範圍內封鎖。</div>
-              <div style="padding:5px 8px;background:rgba(52,168,83,0.15);border:1px solid rgba(52,168,83,0.3);border-radius:6px;color:#6fdd8c;">（✓）在課堂上實施明確的 AI 使用指南、強調學術誠信，並教導學生如何適當引用。</div>
-            </div>
-          </div>
+          <a class="ui-btn" href="https://immersivetranslate.com/zh-TW/" target="_blank" rel="noopener noreferrer" style="background:rgba(161,66,244,0.25);border:1px solid rgba(161,66,244,0.45);color:#e5c7ff;margin-top:10px;">前往官方網站 ↗</a>
+          <div style="margin-top:8px;font-size:11px;color:#cf9bff;">適合：想保留英文並對照中文</div>
         </div>
       </div>
-      <div style="margin-top:12px;font-size:12.5px;color:rgba(255,255,255,0.55);padding:0 4px;">
-        💡 <strong style="color:#fbbc04;">Gem 使用流程</strong>：考試中截圖考題 → 上傳到 Gem → 取得中文翻譯 → 自行判斷答案選項。<strong>不要直接問 Gemini 哪個是正確答案。</strong>
-      </div>
-
-      <!-- 方法二：Chrome 內建翻譯 -->
-      <div style="margin-top:14px;background:rgba(52,168,83,0.08);border:1px solid rgba(52,168,83,0.25);border-radius:12px;padding:14px 16px;">
-        <div style="font-size:13.5px;font-weight:700;color:#6fdd8c;margin-bottom:10px;">⚡ 更快的方法：Chrome 內建翻譯（一鍵整頁翻）</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <!-- 右鍵選單 -->
-          <div class="screen">
-            <div class="screen-bar">
-              <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
-              <div class="addr" style="font-size:10px;">edu.exceedlms.com · 右鍵選單</div>
-            </div>
-            <div class="screen-body" style="padding:12px;">
-              <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:8px;">在考題頁面任意處右鍵</div>
-              <div style="background:#2a2a3e;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);">
-                <div style="padding:8px 14px;font-size:12px;color:rgba(255,255,255,0.6);border-bottom:1px solid rgba(255,255,255,0.06);">上一頁 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Alt+向左鍵</div>
-                <div style="padding:8px 14px;font-size:12px;color:rgba(255,255,255,0.6);border-bottom:1px solid rgba(255,255,255,0.06);">重新載入 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ctrl+R</div>
-                <div style="padding:8px 14px;font-size:12px;color:rgba(255,255,255,0.6);border-bottom:1px solid rgba(255,255,255,0.06);">另存新檔... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ctrl+S</div>
-                <div style="padding:9px 14px;font-size:12.5px;color:#6fdd8c;font-weight:700;background:rgba(52,168,83,0.15);border-bottom:1px solid rgba(255,255,255,0.06);">▶ 翻譯成中文（繁體）</div>
-                <div style="padding:8px 14px;font-size:12px;color:rgba(255,255,255,0.6);">檢視網頁原始碼 &nbsp; Ctrl+U</div>
-              </div>
-            </div>
-          </div>
-          <!-- 翻譯後畫面 -->
-          <div class="screen">
-            <div class="screen-bar">
-              <div class="dc dc-x"></div><div class="dc dc-m"></div><div class="dc dc-n"></div>
-              <div class="addr" style="font-size:10px;">edu.exceedlms.com · 已翻譯</div>
-            </div>
-            <div class="screen-body" style="padding:12px;">
-              <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;background:rgba(255,255,255,0.06);border-radius:6px;padding:6px 10px;font-size:11px;">
-                <span style="color:rgba(255,255,255,0.5);">英文</span>
-                <span style="color:rgba(255,255,255,0.3);">→</span>
-                <span style="color:#4285f4;font-weight:700;">中文（繁體）</span>
-                <span style="color:rgba(255,255,255,0.3);margin-left:auto;font-size:10px;">Google Translate</span>
-              </div>
-              <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:6px;">第 2 題（共 37 題）</div>
-              <div style="font-size:11.5px;color:#fff;line-height:1.6;margin-bottom:10px;">班上的學生一直在進行關於樂於助人的怪物的創意寫作。你想根據學生的描述產生一幅怪物的圖畫，下列哪一個提示最適合這項任務？</div>
-              <div style="font-size:10.5px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:10px;">
-                ○ 請為一隻喜歡吃垃圾的怪物取名字…<br>
-                ○ 創作一幅卡通風格的圖畫，描繪一個樂於助人的怪物…<br>
-                ○ 畫一個喜歡吃東西的怪物。
-              </div>
-              <div class="ui-btn btn-y" style="font-size:11px;padding:6px 18px;display:inline-block;">下一個 →</div>
-            </div>
-          </div>
-        </div>
-        <div style="margin-top:10px;font-size:12px;color:rgba(255,255,255,0.55);">
-          整頁瞬間翻譯，連按鈕「NEXT」都變成「<strong style="color:#6fdd8c;">下一個</strong>」，完全不需要切換分頁，是考試中最高效的翻譯方式！
-        </div>
+      <div class="callout callout-y" style="margin-top:12px;">
+        <span>⚠️</span>
+        <span>翻譯工具僅協助理解語言，譯文仍可能有誤。正式應試時請遵守當下顯示的官方規範，並自行判斷答案。</span>
       </div>
     </div>
 
