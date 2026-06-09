@@ -122,12 +122,16 @@
   .s4-bg{background:linear-gradient(135deg,#e65100,#fbbc04);}
   .s5-bg{background:linear-gradient(135deg,#6a1b9a,#a142f4);}
   .s6-bg{background:linear-gradient(135deg,#006064,#00bcd4);}
+  .s7-bg{background:linear-gradient(135deg,#b0003a,#e91e63);}
+  .s8-bg{background:linear-gradient(135deg,#0b8043,#34a853);}
 
   .l1{background:linear-gradient(#4285f4,#34a853);}
   .l2{background:linear-gradient(#34a853,#ea4335);}
   .l3{background:linear-gradient(#ea4335,#fbbc04);}
   .l4{background:linear-gradient(#fbbc04,#a142f4);}
   .l5{background:linear-gradient(#a142f4,#00bcd4);}
+  .l6{background:linear-gradient(#00bcd4,#e91e63);}
+  .l7{background:linear-gradient(#e91e63,#34a853);}
 
   /* ── SCREENSHOT FRAME ── */
   .screen {
@@ -564,9 +568,17 @@
       <span>重點不是死背功能，而是判斷「此教學需求應選哪個工具、為什麼」。</span>
     </div>
   </div>
-  <div class="callout callout-y" style="margin:16px 0 0;">
-    <span>🧰</span>
-    <span><strong>現場操作前準備：</strong>請先確認可登入 Google 帳號，並使用最新版 Chrome。部分 Gemini、NotebookLM 與 Workspace 功能會因帳號類型、管理員設定或地區而不同；研習中看不到相同按鈕時，先確認帳號權限，不代表操作錯誤。</span>
+  <div class="callout callout-y" style="margin:16px 0 0; flex-direction:column; gap:8px;">
+    <div style="display:flex; gap:12px; align-items:center;">
+      <span>🧰</span>
+      <strong>現場操作前準備 Check-list：</strong>
+    </div>
+    <div style="font-size:12.5px; padding-left:28px; line-height:1.8;">
+      • <strong>帳號準備：</strong>建議優先登入「個人 Gmail 帳號」。部分學校 Education 教育版帳號因管理端權限，可能未開啟 Gemini 或 NotebookLM 功能。<br>
+      • <strong>瀏覽器環境：</strong>請使用最新版 Chrome 瀏覽器，且**不建議使用無痕視窗**，以免翻譯外掛程式無法載入。<br>
+      • <strong>翻譯軟體預裝：</strong>若英文閱讀較吃力，建議先安裝 Chrome 內建翻譯或「沉浸式翻譯」擴充功能。<br>
+      • <strong>考試啟動注意：</strong>報名成功後有 14 天應考期。若今天在研習現場「只報名、不考試」，請點到註冊確認頁即可，**切勿點擊「LAUNCH」**，一旦點擊將啟動 2 小時倒數。
+    </div>
   </div>
   <div class="info-legend" aria-label="資訊來源標示">
     <span class="legend-chip legend-official">官方確認：FAQ／Exam Guide</span>
@@ -673,7 +685,8 @@
       <div class="step-desc">
         進入 <em>educertifications.google/registration/4</em>，大部分欄位<strong>自動從 Google 帳號帶入</strong>，只需確認即可。<br>
         最底部有 <strong>4 個核取方塊</strong>，其中 <strong>2 個必填（標 *）</strong>：年滿 18 歲、同意服務條款及 NDA。<br>
-        確認後點 <strong>「Next」</strong> 完成報名。
+        確認後點 <strong>「Next」</strong> 完成報名。<br>
+        ⚠️ <strong>重要提醒：</strong> 考試語言（Language）<strong>目前不支援中文</strong>（簡體或繁體皆無）。建議選擇 <em>English (US)</em>，在應試時搭配 Chrome 內建翻譯或翻譯外掛（如沉浸式翻譯）。
       </div>
       <div class="screen">
         <div class="screen-bar">
@@ -700,22 +713,6 @@
           </div>
           <div style="margin-top:12px;"><div class="ui-btn btn-b" style="font-size:12px;padding:8px 22px;">Next →</div></div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- STEP 3 -->
-  <div class="step-wrap">
-    <div class="step-left"><div class="step-circle s3-bg">3</div><div class="step-line l3"></div></div>
-    <div class="step-body">
-      <div class="step-title">（建議）先完成官方免費備考課程</div>
-      <div class="step-desc">
-        報名後先別急著應試！建議先閱讀官方 Exam Guide，再完成 Google Learning Center 的免費課程。<br>
-        準備時除了 Gemini，也要熟悉 <strong>Gems、NotebookLM、PARTS 提示框架與負責任使用</strong>等官方學習目標。
-      </div>
-      <div class="callout callout-y">
-        <span>💡</span>
-        <span><strong>小提醒：</strong>若英文閱讀較吃力，可在考前熟悉 Chrome 或雙語翻譯工具；正式應試時是否可使用外部工具，請以當下顯示的考試規範為準。</span>
       </div>
     </div>
   </div>
@@ -751,6 +748,16 @@
       <div class="callout callout-g" style="margin-top:14px;">
         <span>✅</span>
         <span><strong>報名立即生效！</strong>確認頁面直接顯示截止日，同時 Google for Education 也會寄出<strong>報名確認信</strong>至信箱，信中載明考試名稱、報名日期與截止日（UTC-12）。</span>
+      </div>
+      <div class="callout callout-y" style="margin-top:10px; flex-direction:column; gap:6px;">
+        <div style="display:flex; gap:8px; align-items:center;">
+          <span>🎓</span>
+          <strong>備考準備建議（14 天內）：</strong>
+        </div>
+        <div style="font-size:12.5px; padding-left:26px; line-height:1.7; color:rgba(255,255,255,0.78);">
+          報名成功後先別急著按「Take Exam」！建議善用 14 天效期，先閱讀官方 Exam Guide，並完成 Google Learning Center 的免費課程。準備時除了 Gemini，也要熟悉 <strong>Gems、NotebookLM、PARTS 提示框架與負責任使用</strong>等官方學習目標。<br>
+          <em>小提醒：</em>若英文閱讀較吃力，可在考前安裝「沉浸式翻譯」或熟悉 Chrome 內建翻譯。正式應試時是否可使用外部工具，請以當下顯示的考試規範為準。
+        </div>
       </div>
     </div>
   </div>
@@ -821,9 +828,9 @@
     </div>
   </div>
 
-  <!-- STEP 5b -->
+  <!-- STEP 6 -->
   <div class="step-wrap">
-    <div class="step-left"><div class="step-circle s6-bg" style="font-size:14px;">5b</div><div class="step-line" style="background:linear-gradient(#00bcd4,#a142f4);"></div></div>
+    <div class="step-left"><div class="step-circle s6-bg">6</div><div class="step-line l6"></div></div>
     <div class="step-body">
       <div class="step-title">Review 頁面：確認答案，捲到底部點 Submit</div>
       <div class="step-desc">
@@ -859,9 +866,9 @@
     </div>
   </div>
 
-  <!-- STEP 5c -->
+  <!-- STEP 7 -->
   <div class="step-wrap">
-    <div class="step-left"><div class="step-circle s5-bg" style="font-size:14px;">5c</div><div class="step-line" style="background:linear-gradient(#a142f4,#00bcd4);"></div></div>
+    <div class="step-left"><div class="step-circle s7-bg">7</div><div class="step-line l7"></div></div>
     <div class="step-body">
       <div class="step-title">Submit 繳交，即時顯示成績</div>
       <div class="step-desc">
@@ -914,9 +921,9 @@
     </div>
   </div>
 
-  <!-- STEP 6 -->
+  <!-- STEP 8 -->
   <div class="step-wrap">
-    <div class="step-left"><div class="step-circle s6-bg">6</div></div>
+    <div class="step-left"><div class="step-circle s8-bg">8</div></div>
     <div class="step-body">
       <div class="step-title">Learning Center 顯示通過，等待信箱收到 Accredible 證書</div>
       <div class="step-desc">
@@ -1122,7 +1129,7 @@
     <div class="tool-card tc-b">
       <div class="tool-icon">🖼️</div>
       <div class="tool-name">Canvas</div>
-      <div class="tool-desc">可共同建立或編輯文件、簡報、程式碼與互動式應用，並可把內容轉成音訊總覽、測驗、資訊圖或網頁等格式。</div>
+      <div class="tool-desc">可共同建立或編輯文件、簡報、程式與互動式網頁應用。<em>（註：此指 Gemini App 內的協作畫布，非 Canvas 學習管理系統 LMS。）</em></div>
       <span class="tool-tag tt-b">創作與編輯</span>
     </div>
     <div class="tool-card tc-g">
@@ -1364,6 +1371,19 @@
         <div class="qa-opt"><div class="oa">D</div>用另一個 AI 工具重新生成清單</div>
       </div>
       <div class="qa-note"><strong>核心原則：</strong>AI 生成的內容必須經過教師的專業審核與批判性評估，不可直接使用。</div>
+    </div>
+
+    <!-- 情境題 4 -->
+    <div class="qa-card scenario">
+      <div class="qa-type qt-scenario">情境題 · 隱私與安全</div>
+      <div class="qa-q-text">老師想使用 Gemini 幫班上學生的作文提供評語與修正建議，下列哪種做法最符合「負責任使用 AI」的隱私原則？</div>
+      <div class="qa-opts">
+        <div class="qa-opt"><div class="oa">A</div>直接將整份包含學生姓名、座號與學校名稱的作文複製貼上給 Gemini</div>
+        <div class="qa-opt"><div class="oa">B</div>為了省時，將全班學生的作文合併成一個檔案上傳，並要求 Gemini 依座號批改</div>
+        <div class="qa-opt ans"><div class="oa">C</div>將作文中的學生姓名、校名、座號等所有個人識別資訊（去識別化）刪除後，再提供給 Gemini ✓</div>
+        <div class="qa-opt"><div class="oa">D</div>只要是使用教育版帳號（有盾牌保護），就可以直接貼上所有學生個資</div>
+      </div>
+      <div class="qa-note"><strong>核心原則：</strong>將學生資料或任何教學資料上傳給生成式 AI 時，應始終遵守「去識別化」原則，保護學生隱私與資訊安全。</div>
     </div>
 
   </div>
